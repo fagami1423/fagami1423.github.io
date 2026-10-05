@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Raj Kumar Phagami · Software & Systems Engineer</title>
+<meta name="description" content="Raj Kumar Phagami: software and systems engineer building full-stack apps, data pipelines, automation and AI/ML projects. Based in Nelson, BC, Canada.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fafaf9; --surface:#ffffff; --text:#1c1917; --muted:#57534e; --line:#e7e5e4;
+  --accent:#0f766e; --accent-soft:#ccfbf1; --chip:#f5f5f4;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#0c0a09; --surface:#1c1917; --text:#f5f5f4; --muted:#a8a29e; --line:#292524;
+         --accent:#2dd4bf; --accent-soft:#134e4a; --chip:#292524; }
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font:16px/1.65 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+nav{position:sticky;top:0;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);z-index:10}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;height:56px}
+nav .brand{font-family:"JetBrains Mono",monospace;font-weight:500;color:var(--text)}
+nav ul{display:flex;gap:22px;list-style:none;font-size:14px}
+nav ul a{color:var(--muted)}
+header{padding:88px 0 64px}
+.eyebrow{font-family:"JetBrains Mono",monospace;color:var(--accent);font-size:14px;margin-bottom:14px}
+h1{font-size:clamp(34px,6vw,54px);line-height:1.1;letter-spacing:-.02em;font-weight:700}
+.lede{color:var(--muted);font-size:clamp(17px,2.2vw,20px);max-width:640px;margin-top:20px}
+.cta{display:flex;gap:12px;margin-top:32px;flex-wrap:wrap}
+.btn{display:inline-block;padding:10px 18px;border-radius:8px;font-weight:600;font-size:15px;border:1px solid var(--line);color:var(--text);background:var(--surface)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+.btn:hover{text-decoration:none;opacity:.9}
+section{padding:56px 0;border-top:1px solid var(--line)}
+h2{font-size:24px;letter-spacing:-.01em;margin-bottom:28px}
+h2 span{font-family:"JetBrains Mono",monospace;color:var(--accent);font-size:15px;font-weight:500;margin-right:10px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:22px;display:flex;flex-direction:column;transition:border-color .15s,transform .15s}
+.card:hover{border-color:var(--accent);transform:translateY(-2px)}
+.card h3{font-size:17px;margin-bottom:8px}
+.card p{color:var(--muted);font-size:14.5px;flex:1}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+.tag{font-family:"JetBrains Mono",monospace;font-size:12px;background:var(--chip);color:var(--muted);padding:3px 8px;border-radius:5px}
+.card .link{margin-top:14px;font-size:14px;font-weight:600}
+.focus{display:grid;grid-template-columns:repeat(2,1fr);gap:20px 32px}
+.focus div{border-left:3px solid var(--accent);padding:4px 0 4px 16px}
+.focus h3{font-size:16px;margin-bottom:4px}
+.focus p{color:var(--muted);font-size:14.5px}
+.skills{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:24px}
+.skills h3{font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:10px;font-weight:600}
+.skills .tags{margin-top:0}
+.timeline{list-style:none}
+.timeline li{display:grid;grid-template-columns:140px 1fr;gap:16px;padding:14px 0;border-bottom:1px solid var(--line)}
+.timeline li:last-child{border-bottom:0}
+.timeline .when{font-family:"JetBrains Mono",monospace;font-size:13px;color:var(--muted);padding-top:2px}
+.timeline strong{display:block}
+.timeline span{color:var(--muted);font-size:14.5px}
+footer{padding:48px 0 64px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+@media (max-width:640px){
+  nav ul{gap:14px;font-size:13px}
+  nav ul li.hide-sm{display:none}
+  header{padding:56px 0 40px}
+  .timeline li{grid-template-columns:1fr;gap:2px}
+  .focus{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+  <a class="brand" href="#">raj.phagami</a>
+  <ul>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li class="hide-sm"><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</div></nav>
+
+<header><div class="wrap">
+  <p class="eyebrow">Hi, I'm Raj 👋</p>
+  <h1>Software &amp; Systems Engineer building integrations, automation and AI.</h1>
+  <p class="lede">I build full-stack web apps, data pipelines and business automation, and I have a background in machine learning. I'm based in Nelson, British Columbia, Canada.</p>
+  <div class="cta">
+    <a class="btn primary" href="#projects">See projects</a>
+    <a class="btn" href="https://github.com/fagami1423">GitHub</a>
+  </div>
+</div></header>
+
+<section id="work"><div class="wrap">
+  <h2><span>01</span>What I work on</h2>
+  <div class="focus">
+    <div><h3>Data integration</h3><p>Go + PostgreSQL services that unify CRM and e-commerce data into BI dashboards (Metabase).</p></div>
+    <div><h3>Workflow automation</h3><p>Two-way SMS, webinar attendance tracking and CRM syncs built with REST APIs, webhooks and Make.com.</p></div>
+    <div><h3>Web development</h3><p>WordPress and WooCommerce: custom membership portals, forms and page builds.</p></div>
+    <div><h3>AI / ML</h3><p>Computer vision, NLP chatbots, LLM applications and generative music models.</p></div>
+  </div>
+</div></section>
+
+<section id="projects"><div class="wrap">
+  <h2><span>02</span>Selected projects</h2>
+  <div class="grid">
+    <article class="card">
+      <h3>ASL Alphabet Recognition</h3>
+      <p>Real-time sign-language letter recognition from a webcam using InceptionV3 transfer learning, with text-to-speech output.</p>
+      <div class="tags"><span class="tag">TensorFlow</span><span class="tag">OpenCV</span><span class="tag">Python</span></div>
+      <a class="link" href="https://github.com/fagami1423/ASL-TransferLearning">View code →</a>
+    </article>
+    <article class="card">
+      <h3>Job Tracker + AI Resume Generator</h3>
+      <p>A FastAPI backend that tracks job applications and uses a local LLM (Ollama) to write a tailored resume for each job description.</p>
+      <div class="tags"><span class="tag">FastAPI</span><span class="tag">MongoDB</span><span class="tag">LLM</span></div>
+      <a class="link" href="https://github.com/fagami1423/job_tracker">View code →</a>
+    </article>
+    <article class="card">
+      <h3>Discord Clone</h3>
+      <p>Full-stack real-time chat with servers, channels, DMs, invites and file uploads.</p>
+      <div class="tags"><span class="tag">Next.js</span><span class="tag">Socket.io</span><span class="tag">Prisma</span></div>
+      <a class="link" href="https://github.com/fagami1423/discord-clone">View code →</a>
+    </article>
+    <article class="card">
+      <h3>AI Music Generation</h3>
+      <p>A team capstone: LSTM, VAE and Magenta models generate and continue music, with a React player for producers.</p>
+      <div class="tags"><span class="tag">TensorFlow</span><span class="tag">Magenta</span><span class="tag">React</span></div>
+      <a class="link" href="https://github.com/fagami1423/music_generation">View code →</a>
+    </article>
+    <article class="card">
+      <h3>AI Support Chatbot</h3>
+      <p>An intent-classification chatbot in PyTorch, served by FastAPI and retrainable from MongoDB through a REST API.</p>
+      <div class="tags"><span class="tag">PyTorch</span><span class="tag">NLP</span><span class="tag">FastAPI</span></div>
+      <a class="link" href="https://github.com/fagami1423/AI-Chatbot-Python">View code →</a>
+    </article>
+  </div>
+</div></section>
+
+<section id="skills"><div class="wrap">
+  <h2><span>03</span>Skills</h2>
+  <div class="skills">
+    <div><h3>Languages</h3><div class="tags"><span class="tag">Python</span><span class="tag">Go</span><span class="tag">TypeScript</span><span class="tag">JavaScript</span><span class="tag">PHP</span><span class="tag">SQL</span></div></div>
+    <div><h3>Web</h3><div class="tags"><span class="tag">React</span><span class="tag">Next.js</span><span class="tag">Node.js</span><span class="tag">FastAPI</span><span class="tag">WordPress</span><span class="tag">WooCommerce</span></div></div>
+    <div><h3>Data &amp; AI</h3><div class="tags"><span class="tag">TensorFlow</span><span class="tag">PyTorch</span><span class="tag">scikit-learn</span><span class="tag">pandas</span><span class="tag">NLP</span><span class="tag">LLMs</span></div></div>
+    <div><h3>Infra &amp; tools</h3><div class="tags"><span class="tag">PostgreSQL</span><span class="tag">MongoDB</span><span class="tag">Docker</span><span class="tag">GitHub Actions</span><span class="tag">Metabase</span><span class="tag">Make.com</span></div></div>
+  </div>
+</div></section>
+
+<section id="background"><div class="wrap">
+  <h2><span>04</span>Background</h2>
+  <ul class="timeline">
+    <li><div class="when">Now</div><div><strong>IT Specialist &amp; Developer</strong><span>Systems integration, automation, WordPress/WooCommerce development and CRM operations</span></div></li>
+    <li><div class="when">Education</div><div><strong>Postgraduate, Artificial Intelligence &amp; Machine Learning</strong><span>Lambton College</span></div></li>
+    <li><div class="when">Education</div><div><strong>BSc Computing (Software Engineering)</strong><span>Undergraduate degree</span></div></li>
+    <li><div class="when">2019 – 2020</div><div><strong>Junior Software Engineer, Web Development</strong><span>Kunyo.co · Kathmandu, Nepal</span></div></li>
+  </ul>
+</div></section>
+
+<section id="contact"><div class="wrap">
+  <h2><span>05</span>Get in touch</h2>
+  <p class="lede" style="margin-top:0">I'm open to collaborating on automation, data and AI projects. The best way to reach me is through GitHub.</p>
+  <div class="cta">
+    <a class="btn primary" href="https://github.com/fagami1423">github.com/fagami1423</a>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <span>© <span id="y"></span> Raj Kumar Phagami</span>
+  <span>Built with plain HTML &amp; CSS · Hosted on GitHub Pages</span>
+</div></footer>
+<script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+</body>
+</html>
