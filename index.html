@@ -135,13 +135,16 @@ h2{font-size:clamp(28px,4vw,40px);letter-spacing:-.03em;line-height:1.15;font-we
 .card h3{font-size:17px;margin-bottom:8px;letter-spacing:-.01em}
 .card p{color:var(--muted);font-size:14.5px;flex:1}
 .card .more{margin-top:16px;font-weight:600;font-size:14px}
-.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.sk{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px}
-.sk h3{font-size:14px;display:flex;align-items:center;gap:8px;margin-bottom:14px}
-.sk h3::before{content:"";width:8px;height:8px;border-radius:2px;background:var(--accent)}
-.sk .tags{margin-top:0}
-.sk .tag{transition:all .2s;cursor:default}
-.sk .tag:hover{color:var(--accent);border-color:var(--accent);transform:translateY(-2px)}
+.marquees{display:flex;flex-direction:column;gap:16px}
+.marquee{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.track{display:flex;gap:14px;width:max-content;list-style:none;padding:6px 0;animation:marquee var(--dur,48s) linear infinite}
+.m2 .track{--dur:56s}
+.marquee:hover .track{animation-play-state:paused}
+.track li{display:flex;align-items:center;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 20px;white-space:nowrap;font-weight:600;font-size:15px;transition:border-color .2s,transform .2s}
+.track li:hover{border-color:var(--accent);transform:translateY(-3px)}
+.lg{flex:none;width:30px;height:30px;background:var(--c);-webkit-mask:var(--i) center/contain no-repeat;mask:var(--i) center/contain no-repeat}
+.lg.txt{-webkit-mask:none;mask:none;border-radius:8px;display:grid;place-items:center;color:#fff;font:800 17px Inter,sans-serif;font-style:normal}
+@keyframes marquee{to{transform:translateX(calc(-50% - 7px))}}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px}
 .list{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:8px 22px}
 .list .row{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid var(--line);align-items:flex-start}
@@ -170,14 +173,14 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   .tabs{flex-direction:row;overflow-x:auto;border-left:0;border-bottom:2px solid var(--line)}
   .tab{border-left:0;margin-left:0;border-bottom:2px solid transparent;margin-bottom:-2px;white-space:nowrap}
   .tab[aria-selected="true"]{border-bottom-color:var(--accent)}
-  .cases,.grid,.skills{grid-template-columns:1fr 1fr}
+  .cases,.grid{grid-template-columns:1fr 1fr}
 }
 @media (max-width:640px){
   .links{display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;background:var(--bg);border-bottom:1px solid var(--line);padding:10px 16px}
   .links.open{display:flex}
   .menu-btn{display:grid}
   section{padding:64px 0}
-  .cases,.grid,.skills,.pillars{grid-template-columns:1fr}
+  .cases,.grid,.pillars{grid-template-columns:1fr}
   .stat b{font-size:28px}
   .contact{padding:40px 20px}
   .btn#copy span{font-size:14px}
@@ -185,6 +188,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
   .reveal{opacity:1;transform:none}
+  .track{flex-wrap:wrap;width:auto;justify-content:center}
+  .track [aria-hidden]{display:none}
+  .marquee{-webkit-mask-image:none;mask-image:none}
 }
 </style>
 </head>
@@ -404,13 +410,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   <p class="eyebrow">05 · Toolbox</p>
   <h2 class="reveal">Skills &amp; technologies</h2>
   <p class="sub reveal">The tools I use to design, build and ship.</p>
-  <div class="skills">
-    <div class="sk reveal"><h3>Frontend</h3><div class="tags"><span class="tag">JavaScript</span><span class="tag">TypeScript</span><span class="tag">React</span><span class="tag">Next.js</span><span class="tag">Vue.js</span><span class="tag">Tailwind</span></div></div>
-    <div class="sk reveal"><h3>Backend</h3><div class="tags"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">Django</span><span class="tag">Flask</span><span class="tag">PHP / Laravel</span><span class="tag">Node.js</span><span class="tag">Go</span></div></div>
-    <div class="sk reveal"><h3>AI / ML</h3><div class="tags"><span class="tag">TensorFlow</span><span class="tag">PyTorch</span><span class="tag">Hugging Face</span><span class="tag">spaCy</span><span class="tag">NLP</span><span class="tag">LLMs</span></div></div>
-    <div class="sk reveal"><h3>Cloud &amp; DevOps</h3><div class="tags"><span class="tag">AWS (EC2, ECS)</span><span class="tag">GCP</span><span class="tag">Docker</span><span class="tag">Ansible / AWX</span><span class="tag">CI/CD</span><span class="tag">Git</span></div></div>
-    <div class="sk reveal"><h3>Data</h3><div class="tags"><span class="tag">PostgreSQL</span><span class="tag">MySQL</span><span class="tag">MongoDB</span><span class="tag">InfluxDB</span><span class="tag">Elasticsearch</span><span class="tag">Grafana</span></div></div>
-    <div class="sk reveal"><h3>Automation &amp; CMS</h3><div class="tags"><span class="tag">REST APIs</span><span class="tag">Webhooks</span><span class="tag">Keap</span><span class="tag">Zapier</span><span class="tag">Make</span><span class="tag">WordPress</span><span class="tag">WooCommerce</span></div></div>
+  <div class="marquees reveal">
+    <div class="marquee m1"><ul class="track"><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/javascript.svg);--c:#F7DF1E"></i><span>JavaScript</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/typescript.svg);--c:#3178C6"></i><span>TypeScript</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/react.svg);--c:#61DAFB"></i><span>React</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/nextdotjs.svg);--c:var(--text)"></i><span>Next.js</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/vuedotjs.svg);--c:#4FC08D"></i><span>Vue.js</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/tailwindcss.svg);--c:#06B6D4"></i><span>Tailwind</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/python.svg);--c:#3776AB"></i><span>Python</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/fastapi.svg);--c:#009688"></i><span>FastAPI</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/django.svg);--c:var(--text)"></i><span>Django</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/flask.svg);--c:var(--text)"></i><span>Flask</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/php.svg);--c:#777BB4"></i><span>PHP</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/laravel.svg);--c:#FF2D20"></i><span>Laravel</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/nodedotjs.svg);--c:#5FA04E"></i><span>Node.js</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/go.svg);--c:#00ADD8"></i><span>Go</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/tensorflow.svg);--c:#FF6F00"></i><span>TensorFlow</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/pytorch.svg);--c:#EE4C2C"></i><span>PyTorch</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/huggingface.svg);--c:#FFD21E"></i><span>Hugging Face</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/spacy.svg);--c:#09A3D5"></i><span>spaCy</span></li></ul></div>
+    <div class="marquee m2"><ul class="track"><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg);--c:#FF9900"></i><span>AWS</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/googlecloud.svg);--c:#4285F4"></i><span>Google Cloud</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/docker.svg);--c:#2496ED"></i><span>Docker</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/ansible.svg);--c:#EE0000"></i><span>Ansible</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/githubactions.svg);--c:#2088FF"></i><span>GitHub Actions</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/git.svg);--c:#F05032"></i><span>Git</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/postgresql.svg);--c:#4169E1"></i><span>PostgreSQL</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/mysql.svg);--c:#4479A1"></i><span>MySQL</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/mongodb.svg);--c:#47A248"></i><span>MongoDB</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/influxdb.svg);--c:#22ADF6"></i><span>InfluxDB</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/elasticsearch.svg);--c:#00BFB3"></i><span>Elasticsearch</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/grafana.svg);--c:#F46800"></i><span>Grafana</span></li><li><i class="lg txt" style="--c:#36A635">K</i><span>Keap</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/zapier.svg);--c:#FF4F00"></i><span>Zapier</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/make.svg);--c:#A855F7"></i><span>Make</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/wordpress.svg);--c:#21759B"></i><span>WordPress</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/woocommerce.svg);--c:#96588A"></i><span>WooCommerce</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/metabase.svg);--c:#509EE3"></i><span>Metabase</span></li></ul></div>
   </div>
 </div></section>
 
@@ -455,6 +457,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 <div class="toast" id="toast">Email copied ✓</div>
 
 <script>
+// duplicate skill logos so the marquee loops seamlessly
+document.querySelectorAll('.track').forEach(t=>{[...t.children].forEach(li=>{const c=li.cloneNode(true);c.setAttribute('aria-hidden','true');t.appendChild(c)})});
+
 (()=>{
   const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
   const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
