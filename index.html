@@ -251,6 +251,80 @@ footer [lang="ne"]{color:#f5b942;font-weight:700}
 .to-top.show{opacity:1;pointer-events:auto}
 .progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,#f5b942,#e8743b,#c8102e);z-index:60}
 
+/* ---------- hero art: carved stele + stupa ---------- */
+:root{--stupa:#cdd2f2;--stupa-hi:#e9ecff;--stupa-lo:#8f95c8}
+:root[data-phase="firstlight"]{--stupa:#f3d3dc;--stupa-hi:#fff0f3;--stupa-lo:#b98aa6}
+:root[data-phase="sunrise"]{--stupa:#fff1de;--stupa-hi:#fffaf2;--stupa-lo:#e2b993}
+:root[data-phase="day"]{--stupa:#f7f7f2;--stupa-hi:#ffffff;--stupa-lo:#cfd6dc}
+.hero-in{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:center}
+.hero h1{font-size:clamp(38px,5.2vw,66px)}
+.art{position:relative;height:610px;display:flex;align-items:flex-end;justify-content:center}
+.stupa{position:absolute;left:50%;top:0;width:500px;max-width:118%;transform:translateX(-50%);overflow:visible;filter:drop-shadow(0 0 30px rgba(200,205,255,.12))}
+.stupa .fl{fill:none;stroke:var(--faint);stroke-width:1;opacity:.7}
+.stupa .flaglines rect{opacity:.9}
+.stupa .gold{fill:#d6a23c}
+.stupa .tier{stroke:#8a6420;stroke-width:1.2;opacity:.7}
+.stupa .harmika{fill:var(--stupa-hi)}
+.stupa .base{fill:var(--stupa-lo)}
+.stupa path,.stupa rect{transition:fill 1.2s}
+.stele{position:relative;width:330px;margin:0;padding:26px 26px 18px;border-radius:165px 165px 14px 14px / 120px 120px 14px 14px;
+  background:radial-gradient(circle at 30% 20%,rgba(255,255,255,.10),transparent 45%),
+    repeating-radial-gradient(circle at 70% 80%,rgba(0,0,0,.05) 0 2px,transparent 2px 7px),
+    linear-gradient(160deg,#7d776d,#5d5850 55%,#4a463f);
+  box-shadow:inset 0 2px 0 rgba(255,255,255,.15),inset 0 -6px 18px rgba(0,0,0,.35),0 30px 50px -20px rgba(0,0,0,.6);color:#2a2622}
+.stele::before{content:"";position:absolute;inset:10px;border-radius:155px 155px 8px 8px / 112px 112px 8px 8px;border:1px solid rgba(0,0,0,.28);box-shadow:0 1px 0 rgba(255,255,255,.12);pointer-events:none}
+.stele-top{display:flex;justify-content:center;align-items:center;gap:14px;padding:12px 0 8px;font:700 19px var(--dev);color:#2b2722;text-shadow:0 1px 0 rgba(255,255,255,.22)}
+.glyph{width:20px;height:20px;fill:none;stroke:#2b2722;stroke-width:1.8;filter:drop-shadow(0 1px 0 rgba(255,255,255,.22))}
+.carved{font:500 12.2px/1.65 "JetBrains Mono",monospace;margin:0;white-space:pre;overflow:hidden}
+.carved .ln{display:block;color:#26221e;text-shadow:0 1px 0 rgba(255,255,255,.2),0 -1px 0 rgba(0,0,0,.25);clip-path:inset(0 100% 0 0);animation:chisel .9s steps(28,end) forwards;animation-delay:calc(.6s + var(--d) * .55s)}
+@keyframes chisel{to{clip-path:inset(0 0 0 0)}}
+.carved i{font-style:normal}
+.carved .k{color:#e0b250;text-shadow:0 1px 0 rgba(0,0,0,.45)}
+.carved .s{color:#1f1b17}
+.carved .c{color:#e0b250;font-style:italic;opacity:.9}
+.carved .f{text-decoration:underline;text-decoration-color:rgba(0,0,0,.35)}
+.stele-foot{margin-top:12px;padding-top:8px;border-top:1px solid rgba(0,0,0,.25);text-align:center;font:500 10.5px "JetBrains Mono",monospace;letter-spacing:.2em;text-transform:uppercase;color:#2b2722;text-shadow:0 1px 0 rgba(255,255,255,.18)}
+
+/* ---------- palm-leaf manuscripts ---------- */
+.head{display:grid;grid-template-columns:1fr auto;gap:28px 40px;align-items:end;margin-bottom:6px}
+.head .sub{margin-bottom:42px}
+.head>div>h2:last-child{margin-bottom:34px}
+.leaf{position:relative;margin:0 0 40px;padding:16px 46px;border-radius:14px/40px;max-width:470px;transform:rotate(-1.2deg);
+  background:repeating-linear-gradient(180deg,rgba(120,80,30,.07) 0 1px,transparent 1px 5px),
+    linear-gradient(180deg,#ecd9a8,#e2c88d 55%,#d4b674);
+  box-shadow:inset 0 0 0 1px rgba(110,70,20,.25),inset 0 0 22px rgba(120,70,20,.25),0 14px 28px -12px rgba(0,0,0,.45);transition:transform .4s}
+.leaf:hover{transform:rotate(0)}
+.leaf .hole{position:absolute;top:50%;left:18px;width:10px;height:10px;margin-top:-5px;border-radius:50%;background:#5a3b17;box-shadow:inset 0 1px 2px rgba(0,0,0,.6),0 1px 0 rgba(255,255,255,.35)}
+.leaf .hole.r{left:auto;right:18px}
+.leaf .hole::after{content:"";position:absolute;left:4px;top:-30px;width:2px;height:70px;background:#9b2d20;opacity:.75;border-radius:2px}
+.leaf pre{margin:0;overflow-x:auto;scrollbar-width:none}
+.leaf code{font:500 12.6px/1.7 "JetBrains Mono",monospace;color:#3a2410}
+.leaf i{font-style:normal}
+.leaf .k{color:#8e1b1b;font-weight:600}
+.leaf .s{color:#3d5c1e}
+.leaf .c{color:#8a6738;font-style:italic}
+.leaf .f{color:#1f4a7a}
+.leaf .p{color:#8e1b1b;font-weight:600}
+.leaf.center{margin:30px auto 0;text-align:left;transform:rotate(.8deg)}
+@media (max-width:960px){
+  .hero-in{grid-template-columns:1fr}
+  .art{height:560px;margin-top:20px}
+  .head{grid-template-columns:1fr}
+  .head .sub,.head>div>h2:last-child{margin-bottom:6px}
+  .leaf{margin-bottom:36px}
+}
+@media (max-width:640px){
+  .art{height:500px}
+  .stupa{width:400px}
+  .stele{width:300px;padding:22px 18px 16px}
+  .carved{font-size:10.6px}
+  .cue{display:none}
+  .leaf{padding:14px 34px;max-width:100%}
+  .leaf .hole{left:12px}.leaf .hole.r{right:12px}
+  .leaf code{font-size:11.6px}
+}
+@media (prefers-reduced-motion:reduce){.carved .ln{clip-path:none}}
+
 .js .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
 .js .reveal.in{opacity:1;transform:none}
 
@@ -331,6 +405,7 @@ footer [lang="ne"]{color:#f5b942;font-weight:700}
 <header class="hero" data-time="predawn" data-clock="04:30" data-label="Pre-dawn" data-mtn="full">
   <div class="flags" data-flags></div>
   <div class="wrap hero-in">
+  <div class="hero-txt">
     <div class="status"><span class="dot"></span>Open to automation &amp; integration roles · Remote or relocating in Canada</div>
     <span class="namaste"><span lang="ne">नमस्ते</span><small>namaste · hello</small></span>
     <h1>I'm Raj. I build systems that <em>run themselves.</em></h1>
@@ -345,6 +420,25 @@ footer [lang="ne"]{color:#f5b942;font-weight:700}
         <a class="icon-btn" href="https://www.linkedin.com/in/rajkp97/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9v5.7H9.3V9h3.4v1.6h.1c.5-.9 1.6-1.8 3.4-1.8 3.6 0 4.3 2.4 4.3 5.5v6.2zM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2zM7.1 20.5H3.5V9h3.6v11.5zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 .9.8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7C24 .8 23.2 0 22.2 0z"/></svg></a>
         <a class="icon-btn" href="mailto:magar.fagami@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
     </div>
+  </div>
+  <div class="art" aria-hidden="true">
+  <svg class="stupa" viewBox="0 0 400 360" aria-hidden="true">
+<defs><linearGradient id="dome" x1="0" x2="1"><stop offset="0" style="stop-color:var(--stupa-hi)"/><stop offset=".55" style="stop-color:var(--stupa)"/><stop offset="1" style="stop-color:var(--stupa-lo)"/></linearGradient></defs>
+<g class="flaglines"><path class="fl" d="M200,46 Q85.0,174.0 -30,250"/><rect x="180.5" y="62.5" width="9" height="11" fill="#2463b8"/><rect x="155.5" y="88.9" width="9" height="11" fill="#f3efe4"/><rect x="130.5" y="114.2" width="9" height="11" fill="#c8312f"/><rect x="105.5" y="138.2" width="9" height="11" fill="#2f8a4e"/><rect x="80.5" y="161.0" width="9" height="11" fill="#f0c02f"/><rect x="55.5" y="182.6" width="9" height="11" fill="#2463b8"/><rect x="30.5" y="202.9" width="9" height="11" fill="#f3efe4"/><rect x="5.5" y="222.0" width="9" height="11" fill="#c8312f"/><rect x="-19.5" y="239.9" width="9" height="11" fill="#2f8a4e"/><path class="fl" d="M200,46 Q315.0,174.0 430,250"/><rect x="210.5" y="62.5" width="9" height="11" fill="#2463b8"/><rect x="235.5" y="88.9" width="9" height="11" fill="#f3efe4"/><rect x="260.5" y="114.2" width="9" height="11" fill="#c8312f"/><rect x="285.5" y="138.2" width="9" height="11" fill="#2f8a4e"/><rect x="310.5" y="161.0" width="9" height="11" fill="#f0c02f"/><rect x="335.5" y="182.6" width="9" height="11" fill="#2463b8"/><rect x="360.5" y="202.9" width="9" height="11" fill="#f3efe4"/><rect x="385.5" y="222.0" width="9" height="11" fill="#c8312f"/><rect x="410.5" y="239.9" width="9" height="11" fill="#2f8a4e"/><path class="fl" d="M200,46 Q120.0,228.0 40,330"/><rect x="183.8" y="72.2" width="9" height="11" fill="#2463b8"/><rect x="164.3" y="114.0" width="9" height="11" fill="#f3efe4"/><rect x="144.8" y="153.4" width="9" height="11" fill="#c8312f"/><rect x="125.3" y="190.4" width="9" height="11" fill="#2f8a4e"/><rect x="105.7" y="225.0" width="9" height="11" fill="#f0c02f"/><rect x="86.2" y="257.3" width="9" height="11" fill="#2463b8"/><rect x="66.7" y="287.1" width="9" height="11" fill="#f3efe4"/><rect x="47.2" y="314.6" width="9" height="11" fill="#c8312f"/><path class="fl" d="M200,46 Q280.0,228.0 360,330"/><rect x="207.2" y="72.2" width="9" height="11" fill="#2463b8"/><rect x="226.7" y="114.0" width="9" height="11" fill="#f3efe4"/><rect x="246.2" y="153.4" width="9" height="11" fill="#c8312f"/><rect x="265.7" y="190.4" width="9" height="11" fill="#2f8a4e"/><rect x="285.3" y="225.0" width="9" height="11" fill="#f0c02f"/><rect x="304.8" y="257.3" width="9" height="11" fill="#2463b8"/><rect x="324.3" y="287.1" width="9" height="11" fill="#f3efe4"/><rect x="343.8" y="314.6" width="9" height="11" fill="#c8312f"/></g>
+<path class="gold" d="M200,28 l3,8 h-6z"/><path class="gold" d="M184,46 q16,-12 32,0 z"/>
+<path class="gold" d="M192,52 h16 l14,82 h-44z"/><path d="M192.0,62.0h16.0" class="tier"/><path d="M190.1,67.6h19.8" class="tier"/><path d="M188.2,73.2h23.6" class="tier"/><path d="M186.3,78.8h27.4" class="tier"/><path d="M184.4,84.4h31.2" class="tier"/><path d="M182.5,90.0h35.0" class="tier"/><path d="M180.6,95.6h38.8" class="tier"/><path d="M178.7,101.2h42.6" class="tier"/><path d="M176.8,106.8h46.4" class="tier"/><path d="M174.9,112.4h50.2" class="tier"/><path d="M173.0,118.0h54.0" class="tier"/><path d="M171.1,123.6h57.8" class="tier"/><path d="M169.2,129.2h61.6" class="tier"/>
+<rect class="gold" x="172" y="134" width="56" height="6" rx="1"/>
+<rect class="harmika" x="178" y="140" width="44" height="30"/>
+<rect class="harmika" x="170" y="168" width="60" height="6"/>
+<path fill="url(#dome)" d="M84,300 A116,124 0 0 1 316,300 Z"/>
+<path class="base" d="M66,300h268v12H66z M52,312h296v12H52z M38,324h324v12H38z"/>
+</svg>
+  <figure class="stele">
+    <div class="stele-top"><svg viewBox="0 0 24 24" class="glyph"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1"/></svg><span lang="ne">शिलालेख</span><svg viewBox="0 0 24 24" class="glyph"><path d="M16 3.5a8.5 8.5 0 1 0 4.5 13.6A7 7 0 0 1 16 3.5z"/></svg></div>
+    <pre class="carved"><code><span class="ln" style="--d:0"><i class="k">const</i> raj = {</span><span class="ln" style="--d:1">  role:  <i class="s">"Automation Engineer"</i>,</span><span class="ln" style="--d:2">  base:  <i class="s">"Nelson, BC"</i>,</span><span class="ln" style="--d:3">  roots: <i class="s">"Kathmandu"</i>,</span><span class="ln" style="--d:4">  stack: [<i class="s">"APIs"</i>, <i class="s">"Keap"</i>, <i class="s">"Make"</i>, <i class="s">"Go"</i>],</span><span class="ln" style="--d:5">};</span><span class="ln" style="--d:6">raj.<i class="f">automate</i>(manualWork);</span><span class="ln" style="--d:7"><i class="c">// ✔ 50+ flows · 5 hrs/wk saved</i></span></code></pre>
+    <div class="stele-foot">Nelson · Kathmandu</div>
+  </figure>
+</div>
   </div>
   <div class="cue">SCROLL TO WATCH THE SUN RISE<span></span></div>
 </header>
@@ -369,8 +463,16 @@ footer [lang="ne"]{color:#f5b942;font-weight:700}
 </div></div>
 
 <section id="story" data-time="predawn" data-clock="04:50" data-label="Pre-dawn"><div class="wrap">
+  <div class="head">
+  <div>
   <p class="eyebrow"><span lang="ne">अध्याय १</span><span>Chapter one</span><span class="t">· 04:50 · before dawn</span></p>
   <h2 class="reveal">It started in the <em>Kathmandu Valley.</em></h2>
+  </div>
+  <figure class="leaf " aria-hidden="true"><i class="hole"></i><i class="hole r"></i><pre><code><i class="c">// अध्याय १ · before dawn, Kathmandu</i>
+<i class="k">while</i> (!sun.<i class="f">isUp</i>()) {
+  <i class="f">learn</i>(); <i class="f">build</i>(); <i class="f">ship</i>();
+}</code></pre></figure>
+  </div>
   <div class="story">
     <div class="reveal">
       <p class="drop">Before the sun clears the Himalaya, Kathmandu is already awake. Shutters go up, kettles go on, and the city gets to work before it's light. That's where I learned to build software. I finished a <strong>BSc in Computing (Software Engineering)</strong> through the University of Northampton at NAAMI College, and started shipping PHP and Laravel sites for real clients.</p>
@@ -387,9 +489,18 @@ footer [lang="ne"]{color:#f5b942;font-weight:700}
 </div></section>
 
 <section id="journey" data-time="firstlight" data-clock="05:10" data-label="First light"><div class="wrap">
+  <div class="head">
+  <div>
   <p class="eyebrow"><span lang="ne">अध्याय २</span><span>The journey</span><span class="t">· first light</span></p>
   <h2 class="reveal">Four stops, <em>one direction.</em></h2>
   <p class="sub reveal">Each role took me a little further along the trail, from web development to NLP, research engineering and systems automation.</p>
+  </div>
+  <figure class="leaf " aria-hidden="true"><i class="hole"></i><i class="hole r"></i><pre><code><i class="p">$</i> git log --reverse --oneline career
+a1f9c0 init: PHP + Laravel @ Kunyo.co
+b72e1d feat: NLP pipelines @ Terakoya
+c3d48a feat: EV monitoring @ Lambton
+d90f37 feat: automation @ FLFE (HEAD)</code></pre></figure>
+  </div>
   <div class="trail">
     <div class="stop reveal" data-time="firstlight" data-clock="05:10" data-label="First light">
       <div class="when"><b>05:10</b><span>Kathmandu</span></div>
@@ -455,9 +566,18 @@ footer [lang="ne"]{color:#f5b942;font-weight:700}
 </div></section>
 
 <section id="work" data-time="day" data-clock="10:00" data-label="Daylight"><div class="wrap">
+  <div class="head">
+  <div>
   <p class="eyebrow"><span lang="ne">अध्याय ३</span><span>The work</span><span class="t">· full daylight</span></p>
   <h2 class="reveal">Real problems, <em>measurable results.</em></h2>
   <p class="sub reveal">Highlights from production work. The code is private, so these explain the problem, the approach and the impact.</p>
+  </div>
+  <figure class="leaf " aria-hidden="true"><i class="hole"></i><i class="hole r"></i><pre><code><i class="c">// sketch: the webinar flow</i>
+zoom.<i class="f">on</i>(<i class="s">"registered"</i>, r =&gt;
+  keap.<i class="f">upsert</i>(r.email).<i class="f">tag</i>(<i class="s">"Registered"</i>))
+zoom.<i class="f">on</i>(<i class="s">"ended"</i>, m =&gt;
+  m.attendees.<i class="f">forEach</i>(tagAttended))</code></pre></figure>
+  </div>
   <div class="cases">
     <article class="case reveal"><div class="band"></div><div class="case-in">
       <span class="label">Automation · CRM</span>
@@ -490,9 +610,17 @@ footer [lang="ne"]{color:#f5b942;font-weight:700}
 </div></section>
 
 <section id="projects" data-time="day" data-clock="11:30" data-label="Daylight"><div class="wrap">
+  <div class="head">
+  <div>
   <p class="eyebrow"><span lang="ne">अध्याय ४</span><span>Projects</span><span class="t">· open source</span></p>
   <h2 class="reveal">Things I've <em>built.</em></h2>
   <p class="sub reveal">Open-source projects on GitHub. Filter by area.</p>
+  </div>
+  <figure class="leaf " aria-hidden="true"><i class="hole"></i><i class="hole r"></i><pre><code><i class="p">$</i> gh repo list fagami1423 --public
+ASL-TransferLearning  tensorflow
+job_tracker           fastapi · llm
+discord-clone         next.js · socket.io</code></pre></figure>
+  </div>
   <div class="filters reveal">
     <button class="filter on" data-f="all">All</button>
     <button class="filter" data-f="ai">AI / ML</button>
@@ -533,9 +661,15 @@ footer [lang="ne"]{color:#f5b942;font-weight:700}
 </div></section>
 
 <section id="skills" data-time="day" data-clock="13:00" data-label="Daylight"><div class="wrap">
+  <div class="head">
+  <div>
   <p class="eyebrow"><span lang="ne">अध्याय ५</span><span>Toolbox</span></p>
   <h2 class="reveal">Skills &amp; <em>technologies.</em></h2>
   <p class="sub reveal">The tools I use to design, build and ship.</p>
+  </div>
+  <figure class="leaf " aria-hidden="true"><i class="hole"></i><i class="hole r"></i><pre><code><i class="k">import</i> { apis, crm, cloud } <i class="k">from</i> <i class="s">"./toolbox"</i>;
+<i class="k">const</i> stack = [...apis, ...crm, ...cloud];</code></pre></figure>
+  </div>
   <div class="marquees reveal">
     <div class="marquee m1"><ul class="track"><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/javascript.svg);--c:#F7DF1E"></i><span>JavaScript</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/typescript.svg);--c:#3178C6"></i><span>TypeScript</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/react.svg);--c:#61DAFB"></i><span>React</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/nextdotjs.svg);--c:var(--text)"></i><span>Next.js</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/vuedotjs.svg);--c:#4FC08D"></i><span>Vue.js</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/tailwindcss.svg);--c:#06B6D4"></i><span>Tailwind</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/python.svg);--c:#3776AB"></i><span>Python</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/fastapi.svg);--c:#009688"></i><span>FastAPI</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/django.svg);--c:var(--text)"></i><span>Django</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/flask.svg);--c:var(--text)"></i><span>Flask</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/php.svg);--c:#777BB4"></i><span>PHP</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/laravel.svg);--c:#FF2D20"></i><span>Laravel</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/nodedotjs.svg);--c:#5FA04E"></i><span>Node.js</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/go.svg);--c:#00ADD8"></i><span>Go</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/tensorflow.svg);--c:#FF6F00"></i><span>TensorFlow</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/pytorch.svg);--c:#EE4C2C"></i><span>PyTorch</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/huggingface.svg);--c:#FFD21E"></i><span>Hugging Face</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/spacy.svg);--c:#09A3D5"></i><span>spaCy</span></li></ul></div>
     <div class="marquee m2"><ul class="track"><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg);--c:#FF9900"></i><span>AWS</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/googlecloud.svg);--c:#4285F4"></i><span>Google Cloud</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/docker.svg);--c:#2496ED"></i><span>Docker</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/ansible.svg);--c:#EE0000"></i><span>Ansible</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/githubactions.svg);--c:#2088FF"></i><span>GitHub Actions</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/git.svg);--c:#F05032"></i><span>Git</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/postgresql.svg);--c:#4169E1"></i><span>PostgreSQL</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/mysql.svg);--c:#4479A1"></i><span>MySQL</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/mongodb.svg);--c:#47A248"></i><span>MongoDB</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/influxdb.svg);--c:#22ADF6"></i><span>InfluxDB</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/elasticsearch.svg);--c:#00BFB3"></i><span>Elasticsearch</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/grafana.svg);--c:#F46800"></i><span>Grafana</span></li><li><i class="lg txt" style="--c:#36A635">K</i><span>Keap</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/zapier.svg);--c:#FF4F00"></i><span>Zapier</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/make.svg);--c:#A855F7"></i><span>Make</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/wordpress.svg);--c:#21759B"></i><span>WordPress</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/woocommerce.svg);--c:#96588A"></i><span>WooCommerce</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/metabase.svg);--c:#509EE3"></i><span>Metabase</span></li></ul></div>
@@ -543,8 +677,15 @@ footer [lang="ne"]{color:#f5b942;font-weight:700}
 </div></section>
 
 <section id="education" data-time="day" data-clock="14:00" data-label="Daylight"><div class="wrap">
+  <div class="head">
+  <div>
   <p class="eyebrow"><span lang="ne">अध्याय ६</span><span>Learning</span></p>
   <h2 class="reveal">Education &amp; <em>certifications.</em></h2>
+  </div>
+  <figure class="leaf " aria-hidden="true"><i class="hole"></i><i class="hole r"></i><pre><code><i class="p">&gt;&gt;&gt;</i> raj.education
+[<i class="s">"PG Dip, AI &amp; ML · Lambton · 2023"</i>,
+ <i class="s">"BSc Computing · Northampton · 2019"</i>]</code></pre></figure>
+  </div>
   <div class="two">
     <div class="list reveal">
       <div class="row"><span class="badge">🎓</span><div><strong>Postgraduate Diploma, AI &amp; Machine Learning</strong><span>Lambton College, Toronto · 2023</span></div></div>
@@ -573,6 +714,9 @@ footer [lang="ne"]{color:#f5b942;font-weight:700}
       <a class="btn" href="https://www.linkedin.com/in/rajkp97/" target="_blank" rel="noopener">LinkedIn</a>
       <a class="btn" href="https://github.com/fagami1423" target="_blank" rel="noopener">GitHub</a>
     </div>
+    <figure class="leaf center" aria-hidden="true"><i class="hole"></i><i class="hole r"></i><pre><code><i class="k">if</i> (team.<i class="f">needs</i>(<i class="s">"automation"</i>)) {
+  <i class="f">email</i>(<i class="s">"magar.fagami@gmail.com"</i>);
+}</code></pre></figure>
   </div>
 </div></section>
 </main>
