@@ -3,15 +3,22 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Raj Phagami · Software & Systems Engineer</title>
-<meta name="description" content="Raj Phagami: Software & Systems Engineer in Nelson, BC. Full-stack development, AI/ML, cloud, DevOps and business automation.">
-<meta property="og:title" content="Raj Phagami · Software & Systems Engineer">
-<meta property="og:description" content="Full-stack, AI/ML and automation engineer. 5+ years building web apps, data pipelines and integrations.">
+<title>Raj Phagami · Automation & Integration Engineer</title>
+<meta name="description" content="Raj Phagami: Automation & Integration Engineer in Nelson, BC. APIs, CRM automation, data pipelines, full-stack web and AI/ML. Open to remote roles or relocation within Canada.">
+<link rel="canonical" href="https://fagami1423.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Raj Phagami · Automation & Integration Engineer">
+<meta property="og:description" content="I build systems that run themselves. 5+ years across API integrations, automation, full-stack web and AI/ML.">
+<meta property="og:image" content="https://fagami1423.github.io/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <meta property="og:url" content="https://fagami1423.github.io">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%2314b8a6'/><text x='32' y='43' font-family='monospace' font-size='30' font-weight='700' text-anchor='middle' fill='%23042f2e'>RP</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Raj Phagami","alternateName":"Raj Kumar Phagami","jobTitle":"Automation & Integration Engineer","url":"https://fagami1423.github.io/","email":"mailto:magar.fagami@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Nelson","addressRegion":"BC","addressCountry":"CA"},"alumniOf":[{"@type":"CollegeOrUniversity","name":"Lambton College"},{"@type":"CollegeOrUniversity","name":"University of Northampton"}],"knowsAbout":["API integration","Workflow automation","Keap","Make","Zapier","Python","Go","PostgreSQL","React","Django","Machine learning","NLP"],"sameAs":["https://github.com/fagami1423","https://www.linkedin.com/in/rajkp97/"]}</script>
 <style>
 :root{
   --bg:#0a0f14; --bg2:#0f161d; --surface:#121b23; --surface2:#16212b; --text:#e6edf3; --muted:#8b9bab; --faint:#5b6b7a;
@@ -86,6 +93,15 @@ h2{font-size:clamp(28px,4vw,40px);letter-spacing:-.03em;line-height:1.15;font-we
 .about p{color:var(--muted)}
 .about p+p{margin-top:14px}
 .about strong{color:var(--text);font-weight:600}
+.facts{display:grid;grid-template-columns:repeat(5,1fr);gap:0;background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-bottom:24px}
+.fact{padding:18px 20px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:2px;color:var(--text)}
+.fact:last-child{border-right:0}
+.fact span{font:500 11.5px "JetBrains Mono",monospace;color:var(--accent);text-transform:uppercase;letter-spacing:.06em}
+.fact b{font-size:15px;line-height:1.35}
+.fact small{color:var(--muted);font-size:13px}
+.cta-fact{background:color-mix(in srgb,var(--accent) 12%,var(--surface));transition:background .2s}
+.cta-fact:hover{background:color-mix(in srgb,var(--accent) 22%,var(--surface))}
+.cta-fact b{color:var(--accent)}
 .pillars{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .pillar{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;transition:border-color .2s,transform .2s}
 .pillar:hover{border-color:var(--accent);transform:translateY(-3px)}
@@ -168,6 +184,10 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   .hero{grid-template-columns:1fr;padding:64px 0 48px}
   .term{transform:none}
   .stats{grid-template-columns:repeat(2,1fr)}
+  .facts{grid-template-columns:1fr 1fr}
+  .fact{border-bottom:1px solid var(--line)}
+  .fact:nth-child(2n){border-right:0}
+  .cta-fact{grid-column:1/-1;border-bottom:0}
   .about,.two{grid-template-columns:1fr}
   .exp{grid-template-columns:1fr}
   .tabs{flex-direction:row;overflow-x:auto;border-left:0;border-bottom:2px solid var(--line)}
@@ -182,6 +202,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   section{padding:64px 0}
   .cases,.grid,.pillars{grid-template-columns:1fr}
   .stat b{font-size:28px}
+  .facts{grid-template-columns:1fr}
+  .fact{border-right:0}
   .contact{padding:40px 20px}
   .btn#copy span{font-size:14px}
 }
@@ -222,13 +244,16 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 <div class="wrap">
   <header class="hero">
     <div>
-      <div class="status"><span class="dot"></span>Open to software, AI &amp; automation roles</div>
+      <div class="status"><span class="dot"></span>Open to automation &amp; integration roles · Remote or relocating in Canada</div>
       <h1>Hi, I'm Raj.<br><span class="grad">I build systems that run themselves.</span></h1>
-      <span class="rotator">I'm a <span class="word" id="word">Full-Stack Developer</span></span>
-      <p class="lede">Software &amp; Systems Engineer with 5+ years across web development, AI/ML and automation. I turn messy business processes into reliable, automated systems, from API integrations and data pipelines to ML-powered apps.</p>
+      <span class="rotator">I'm a <span class="word" id="word">Automation Engineer</span></span>
+      <p class="lede">Automation &amp; integration engineer with 5+ years of software experience. I connect CRMs, e-commerce platforms, messaging and video tools through APIs and workflows, so teams stop doing by hand what software can do reliably. Backed by full-stack web and AI/ML depth.</p>
       <div class="cta">
         <a class="btn primary" href="#work">See my work
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn" href="Raj-Phagami-Resume.pdf" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+          Download résumé</a>
         <a class="btn" href="#contact">Get in touch</a>
       </div>
       <div class="socials">
@@ -249,6 +274,14 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
     <div class="stat"><b><span data-count="1000">0</span>+</b><span>webinar registrants auto-tagged</span></div>
     <div class="stat"><b><span data-count="5">0</span> hrs</b><span>manual work saved every week</span></div>
   </div>
+
+  <aside class="facts reveal" aria-label="Quick facts for recruiters">
+    <div class="fact"><span>Looking for</span><b>Automation / Integration Engineer</b><small>also Full-stack · Systems roles</small></div>
+    <div class="fact"><span>Based in</span><b>Nelson, BC, Canada</b><small>Pacific Time</small></div>
+    <div class="fact"><span>Work setup</span><b>Remote or relocate</b><small>anywhere in Canada</small></div>
+    <div class="fact"><span>Education</span><b>PG Dip, AI &amp; ML</b><small>BSc Computing (Software Eng.)</small></div>
+    <a class="fact cta-fact" href="Raj-Phagami-Resume.pdf" download><span>Résumé</span><b>Get my résumé →</b><small>PDF download</small></a>
+  </aside>
 </div>
 
 <section id="about"><div class="wrap">
@@ -256,13 +289,13 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   <h2 class="reveal">Engineer by training,<br>problem-solver by habit.</h2>
   <div class="about">
     <div class="reveal">
-      <p>I'm a <strong>Software &amp; Systems Engineer</strong> based in <strong>Nelson, British Columbia</strong>. I started out building PHP and Laravel sites in Kathmandu. Since then I've built NLP pipelines with Transformer models, real-time monitoring dashboards for EV charging stations, and now the automation and integration layer that keeps a subscription business running.</p>
+      <p>I'm an <strong>automation &amp; integration engineer</strong> based in <strong>Nelson, British Columbia</strong>. I started out building PHP and Laravel sites in Kathmandu. Since then I've built NLP pipelines with Transformer models, real-time monitoring dashboards for EV charging stations, and now the automation and integration layer that keeps a subscription business running.</p>
       <p>I hold a <strong>Postgraduate Diploma in AI &amp; Machine Learning</strong> from Lambton College and a <strong>BSc in Computing (Software Engineering)</strong> from the University of Northampton. I like the space where software meets operations: finding the manual, error-prone process and replacing it with something that just works.</p>
     </div>
     <div class="pillars reveal">
+      <div class="pillar"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><h3>Automation</h3><p>APIs, webhooks, Keap, Zapier, Make</p></div>
       <div class="pillar"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m8 6-6 6 6 6M16 6l6 6-6 6"/></svg></div><h3>Full-stack</h3><p>React, Next.js, Vue · Python, PHP, Node</p></div>
       <div class="pillar"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2a4 4 0 0 1 4 4v1a3 3 0 0 1 2 5 3 3 0 0 1-2 5v1a4 4 0 0 1-8 0v-1a3 3 0 0 1-2-5 3 3 0 0 1 2-5V6a4 4 0 0 1 4-4z"/></svg></div><h3>AI / ML</h3><p>NLP, Transformers, TensorFlow, LLM apps</p></div>
-      <div class="pillar"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><h3>Automation</h3><p>APIs, webhooks, Keap, Zapier, Make</p></div>
       <div class="pillar"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 10h-1.3A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg></div><h3>Cloud &amp; DevOps</h3><p>AWS, GCP, Docker, AWX, CI/CD</p></div>
     </div>
   </div>
@@ -274,14 +307,14 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   <p class="sub reveal">Four roles across Canada and Nepal, covering web development, NLP, research engineering and systems automation.</p>
   <div class="exp reveal">
     <div class="tabs" role="tablist">
-      <button class="tab" role="tab" aria-selected="true" data-p="p1">FLFE Innovations<small>2025 – now</small></button>
+      <button class="tab" role="tab" aria-selected="true" data-p="p1">FLFE Innovative Corp<small>2025 – now</small></button>
       <button class="tab" role="tab" aria-selected="false" data-p="p2">Lambton College<small>2022 – 2024</small></button>
       <button class="tab" role="tab" aria-selected="false" data-p="p3">Terakoya Academia<small>2021</small></button>
       <button class="tab" role="tab" aria-selected="false" data-p="p4">Kunyo.co<small>2019 – 2020</small></button>
     </div>
     <div>
       <div class="panel on" id="p1" role="tabpanel">
-        <h3>Software &amp; Systems Engineer <span>@ FLFE Innovations</span></h3>
+        <h3>IT Specialist (Systems, Web &amp; Automation) <span>@ FLFE Innovative Corp</span></h3>
         <p class="meta">Sep 2025 – Present · Nelson, BC</p>
         <ul>
           <li>Architected API integrations and <b>50+ automation workflows</b> across Keap, Zapier and Make, including two-way SMS and Zoom webinar automation that auto-tags <b>1,000+ registrants</b> and removes <b>5 hours of manual work a week</b>.</li>
@@ -316,7 +349,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
       </div>
       <div class="panel" id="p4" role="tabpanel">
         <h3>Web Developer <span>@ Kunyo.co</span></h3>
-        <p class="meta">2019 – Dec 2020 · Kathmandu, Nepal</p>
+        <p class="meta">Sep 2019 – Dec 2020 · Kathmandu, Nepal</p>
         <ul>
           <li>Built dynamic client websites with <b>PHP (Laravel, CodeIgniter)</b> and MySQL from business requirements.</li>
           <li>Shipped JavaScript features in a team, with automated testing to improve release quality and shorten delivery times.</li>
@@ -436,11 +469,12 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   <div class="contact reveal">
     <p class="eyebrow">07 · Contact</p>
     <h2>Let's build something that runs itself.</h2>
-    <p>I'm open to software engineering, AI/ML and automation roles, and to collaborating on interesting projects. The quickest way to reach me is email.</p>
+    <p>I'm looking for automation, integration and full-stack engineering roles, remote or relocating anywhere in Canada. Email is the fastest way to reach me.</p>
     <div class="cta">
       <button class="btn primary" id="copy">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
         <span>magar.fagami@gmail.com</span></button>
+      <a class="btn" href="Raj-Phagami-Resume.pdf" download>Résumé (PDF)</a>
       <a class="btn" href="https://www.linkedin.com/in/rajkp97/" target="_blank" rel="noopener">LinkedIn</a>
       <a class="btn" href="https://github.com/fagami1423" target="_blank" rel="noopener">GitHub</a>
     </div>
@@ -482,7 +516,7 @@ document.querySelectorAll('.track').forEach(t=>{[...t.children].forEach(li=>{con
   $('#menu').onclick=()=>$('#links').classList.toggle('open');
   $$('#links a').forEach(a=>a.addEventListener('click',()=>$('#links').classList.remove('open')));
 
-  const roles=['Full-Stack Developer','Machine Learning Engineer','Systems Engineer','Cloud & DevOps Builder','Workflow Automation Architect'];
+  const roles=['Automation Engineer','Integration Engineer','Full-Stack Developer','Systems Engineer','Machine Learning Engineer'];
   const w=$('#word');let ri=0;
   if(!reduce){
     const type=(txt,i=0)=>{w.textContent=txt.slice(0,i);if(i<txt.length)setTimeout(()=>type(txt,i+1),55);else setTimeout(erase,1900)};
@@ -491,10 +525,10 @@ document.querySelectorAll('.track').forEach(t=>{[...t.children].forEach(li=>{con
   }
 
   const lines=[
-    ['whoami','Raj Phagami · Software &amp; Systems Engineer'],
+    ['whoami','Raj Phagami · Automation &amp; Integration Engineer'],
     ['cat stack.json','{ <span class="k">"web"</span>: [<span class="s">"React"</span>, <span class="s">"Next.js"</span>, <span class="s">"Django"</span>],<br>&nbsp;&nbsp;<span class="k">"ai"</span>: [<span class="s">"NLP"</span>, <span class="s">"Transformers"</span>, <span class="s">"LLMs"</span>],<br>&nbsp;&nbsp;<span class="k">"ops"</span>: [<span class="s">"AWS"</span>, <span class="s">"Docker"</span>, <span class="s">"AWX"</span>] }'],
     ['./automate --manual-work','<span class="c">✔ 50+ workflows deployed</span><br><span class="c">✔ 5 hrs/week saved</span>'],
-    ['echo $LOCATION','Nelson, BC, Canada 🏔️'],
+    ['echo $LOCATION','Nelson, BC 🏔️ · remote or relocating in Canada'],
   ];
   const term=$('#term');const P='<span class="p">$</span> ';
   if(reduce){term.innerHTML=lines.map(([c,o])=>P+c+'<br>'+o).join('<br><br>')}
