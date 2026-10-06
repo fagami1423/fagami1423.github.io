@@ -159,19 +159,19 @@ h2 em{font-style:italic;font-weight:500;color:var(--accent)}
 .pillar p{font-size:13.5px;color:var(--muted)}
 
 /* ---------- journey timeline ---------- */
-.trail{position:relative;margin-top:10px;--rw:90px}
-.river{position:absolute;left:96px;top:-30px;bottom:-30px;width:var(--rw);pointer-events:none}
-.river svg{width:100%;height:100%;overflow:visible;display:block}
+.trail{position:relative;margin-top:10px}
+.river{position:relative;height:150px;margin:0 0 26px}
+.river svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;display:block;pointer-events:none}
 .river .bank{fill:none;stroke:var(--river);stroke-width:22;stroke-linecap:round;opacity:.45}
 .river .water{fill:none;stroke:var(--river);stroke-width:10;stroke-linecap:round;opacity:.9}
 .river .flow{fill:none;stroke:var(--water);stroke-width:2.2;stroke-linecap:round;stroke-dasharray:3 16;animation:flow 1.6s linear infinite;opacity:.9}
 .river .flow.f2{stroke-dasharray:1 23;stroke-width:3;animation-duration:2.4s;opacity:.6}
-.river .lit{fill:none;stroke:var(--accent);stroke-width:3;stroke-linecap:round;filter:drop-shadow(0 0 6px var(--accent));transition:stroke-dashoffset .25s linear}
+.river .lit{fill:none;stroke:var(--accent);stroke-width:3;stroke-linecap:round;filter:drop-shadow(0 0 6px var(--accent))}
 @keyframes flow{to{stroke-dashoffset:-38}}
-.boat{position:absolute;left:0;top:0;width:34px;height:20px;margin:-14px 0 0 -17px;transition:transform .25s linear;filter:drop-shadow(0 3px 3px rgba(0,0,0,.35))}
+.boat{position:absolute;left:0;top:0;width:38px;height:22px;margin:-30px 0 0 -19px;pointer-events:none;z-index:3;filter:drop-shadow(0 3px 3px rgba(0,0,0,.35))}
 .boat svg{width:100%;height:100%;animation:bob 2.4s ease-in-out infinite}
 @keyframes bob{50%{transform:translateY(-2px) rotate(3deg)}}
-.mark{position:absolute;width:26px;height:26px;margin:-13px 0 0 -13px;border-radius:50%;background:var(--surface);border:2px solid var(--faint);display:grid;place-items:center;transition:transform .5s cubic-bezier(.3,1.6,.5,1),border-color .4s,background .4s;z-index:2}
+.mark{position:absolute;width:26px;height:26px;margin:-13px 0 0 -13px;cursor:pointer;padding:0;border-radius:50%;background:var(--surface);border:2px solid var(--faint);display:grid;place-items:center;transition:transform .5s cubic-bezier(.3,1.6,.5,1),border-color .4s,background .4s;z-index:2}
 .mark i{width:10px;height:10px;border-radius:50%;background:var(--faint);transition:background .4s}
 .mark::before,.mark::after{content:"";position:absolute;inset:-2px;border-radius:50%;border:2px solid var(--accent);opacity:0}
 .mark.on{transform:scale(1.18);border-color:var(--accent);background:color-mix(in srgb,var(--accent) 18%,var(--surface))}
@@ -181,10 +181,26 @@ h2 em{font-style:italic;font-weight:500;color:var(--accent)}
 .mark.pop{animation:pop .7s cubic-bezier(.3,1.6,.5,1)}
 @keyframes ripple{0%{transform:scale(1);opacity:.8}100%{transform:scale(3.2);opacity:0}}
 @keyframes pop{0%{transform:scale(.6)}60%{transform:scale(1.5)}100%{transform:scale(1.18)}}
-.stop{display:grid;grid-template-columns:80px 1fr;gap:126px;margin-bottom:48px;position:relative}
-.stop:last-child{margin-bottom:0}
+.stop{display:none}
+.stop.active{display:block;animation:panelIn .5s cubic-bezier(.2,.8,.2,1)}
+@keyframes panelIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.stop .when{display:none}
+.stopbtn{position:absolute;transform:translateX(-50%);background:none;border:0;color:var(--text);cursor:pointer;text-align:center;font:inherit;padding:0;width:120px;z-index:2}
+.stopbtn .mark{position:relative;display:grid;margin:0 auto}
+.stopbtn b{display:block;margin-top:10px;font:800 19px/1 "JetBrains Mono",monospace;letter-spacing:-.02em;color:var(--muted);transition:color .3s}
+.stopbtn small{display:block;margin-top:4px;font:500 10.5px "JetBrains Mono",monospace;color:var(--faint);text-transform:uppercase;letter-spacing:.06em}
+.stopbtn:hover b{color:var(--text)}
+.stopbtn:hover .mark{border-color:var(--accent)}
+.stopbtn[aria-selected="true"] b{color:var(--accent)}
+.stopbtn:focus-visible{outline:2px solid var(--accent);outline-offset:6px;border-radius:10px}
+.stopbtn .mark.past{border-color:var(--accent)}
+.stopbtn .mark.past i{background:var(--accent)}
+.jnav{display:flex;justify-content:space-between;align-items:center;margin-top:18px;gap:10px}
+.jnav button{font:500 13.5px "JetBrains Mono",monospace;height:40px;padding:0 16px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--muted);cursor:pointer;transition:all .2s}
+.jnav button:hover:not(:disabled){color:var(--text);border-color:var(--accent)}
+.jnav button:disabled{opacity:.35;cursor:default}
+.jnav span{font:500 12.5px "JetBrains Mono",monospace;color:var(--faint)}
 .when{text-align:right;padding-top:2px;transition:color .4s}
-.stop.on .when b{color:var(--accent)}
 .when b{display:block;font:700 26px/1 var(--serif);letter-spacing:-.01em}
 .when span{font:500 11.5px "JetBrains Mono",monospace;color:var(--faint);text-transform:uppercase;letter-spacing:.06em}
 .card-x{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:24px 26px;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);transition:background .9s,border-color .9s}
@@ -367,9 +383,10 @@ footer [lang="ne"]{color:#f5b942;font-weight:700}
   .cases,.grid,.two,.pillars{grid-template-columns:1fr}
   .facts{grid-template-columns:1fr}
   .fact{border-right:0}
-  .trail{--rw:44px}
-  .river{left:-8px}
-  .stop{grid-template-columns:1fr;gap:10px;padding-left:46px}
+  .river{height:130px}
+  .stopbtn{width:70px}
+  .stopbtn b{font-size:15px}
+  .stopbtn small{font-size:9px;letter-spacing:.02em}
     .when{text-align:left;display:flex;gap:10px;align-items:baseline}
   .when b{font-size:22px}
   .stat b{font-size:28px}
@@ -503,10 +520,10 @@ footer [lang="ne"]{color:#f5b942;font-weight:700}
 <section id="journey"><div class="wrap">
   <p class="eyebrow"><span lang="ne">अध्याय २</span><span>The journey</span><span class="t">· 2019 → now</span></p>
   <h2 class="reveal">Five stops, <em>one direction.</em></h2>
-  <p class="sub reveal">Each stop took me a little further downstream, from web development to NLP, research engineering, a focused career break and systems automation.</p>
+  <p class="sub reveal">Each stop took me a little further downstream. Tap a stop on the river to read about it.</p>
   <div class="trail" id="trail">
-    <div class="river" aria-hidden="true"><svg><path class="bank"/><path class="water"/><path class="flow"/><path class="flow f2"/><path class="lit"/></svg><span class="boat"><svg viewBox="0 0 34 20"><path d="M2 9h30l-5 8H7z" fill="#8a5a2b"/><path d="M2 9h30" stroke="#5c3714" stroke-width="2"/><path d="M17 1v8" stroke="#5c3714" stroke-width="1.6"/><path d="M17 2l9 6h-9z" fill="#f3efe4"/></svg></span></div>
-    <div class="stop reveal">
+    <div class="river"><svg aria-hidden="true"><path class="bank"/><path class="water"/><path class="flow"/><path class="flow f2"/><path class="lit"/></svg><span class="boat"><svg viewBox="0 0 34 20"><path d="M2 9h30l-5 8H7z" fill="#8a5a2b"/><path d="M2 9h30" stroke="#5c3714" stroke-width="2"/><path d="M17 1v8" stroke="#5c3714" stroke-width="1.6"/><path d="M17 2l9 6h-9z" fill="#f3efe4"/></svg></span><div role="tablist" aria-label="Career stops" id="stopbar"></div></div>
+    <div class="stop">
       <div class="when"><b>2019</b><span>Kathmandu</span></div>
       <div class="card-x">
         <p class="line">The first stretch: client sites, real deadlines, real users.</p>
@@ -520,7 +537,7 @@ footer [lang="ne"]{color:#f5b942;font-weight:700}
         <div class="tags"><span class="tag">PHP</span><span class="tag">Laravel</span><span class="tag">CodeIgniter</span><span class="tag">MySQL</span><span class="tag">JavaScript</span></div>
       </div>
     </div>
-    <div class="stop reveal">
+    <div class="stop">
       <div class="when"><b>2021</b><span>Kathmandu</span></div>
       <div class="card-x">
         <p class="line">Teaching machines to read.</p>
@@ -535,7 +552,7 @@ footer [lang="ne"]{color:#f5b942;font-weight:700}
         <div class="tags"><span class="tag">Python</span><span class="tag">spaCy</span><span class="tag">Hugging Face</span><span class="tag">BERT</span><span class="tag">Elasticsearch</span><span class="tag">Flask</span><span class="tag">AWS</span></div>
       </div>
     </div>
-    <div class="stop reveal">
+    <div class="stop">
       <div class="when"><b>2022</b><span>Toronto</span></div>
       <div class="card-x">
         <p class="line">A new country, and the river widens.</p>
@@ -550,7 +567,7 @@ footer [lang="ne"]{color:#f5b942;font-weight:700}
         <div class="tags"><span class="tag">Django</span><span class="tag">Vue.js</span><span class="tag">PostgreSQL</span><span class="tag">InfluxDB</span><span class="tag">Grafana</span><span class="tag">AWX</span><span class="tag">AWS EC2</span></div>
       </div>
     </div>
-    <div class="stop reveal brk">
+    <div class="stop brk">
       <div class="when"><b>2024</b><span>Nelson, BC</span></div>
       <div class="card-x">
         <p class="line">A pause on the riverbank to sharpen the tools.</p>
@@ -565,7 +582,7 @@ footer [lang="ne"]{color:#f5b942;font-weight:700}
         <div class="tags"><span class="tag">Generative AI</span><span class="tag">Transformers</span><span class="tag">Django</span><span class="tag">FastAPI</span><span class="tag">React</span><span class="tag">AWS</span><span class="tag">Docker</span></div>
       </div>
     </div>
-    <div class="stop reveal">
+    <div class="stop">
       <div class="when"><b>2025</b><span>Nelson, BC</span></div>
       <div class="card-x">
         <p class="line">Morning in the Selkirks: the systems that keep a business running.</p>
@@ -581,6 +598,7 @@ footer [lang="ne"]{color:#f5b942;font-weight:700}
         <div class="tags"><span class="tag">Keap</span><span class="tag">Zapier</span><span class="tag">Make</span><span class="tag">REST APIs</span><span class="tag">WordPress</span><span class="tag">Python</span><span class="tag">AI tools</span></div>
       </div>
     </div>
+    <div class="jnav"><button id="jprev">← earlier</button><span id="jcount"></span><button id="jnext">later →</button></div>
   </div>
 </div></section>
 
@@ -782,36 +800,40 @@ footer [lang="ne"]{color:#f5b942;font-weight:700}
   };
 
 
-  // journey river: a meandering river with the four stops on it; a boat drifts down as you scroll
+  // journey: horizontal river; click a stop to show that chapter, the boat sails there
   const trail=$('#trail');
   if(trail){
-    const rv=trail.querySelector('.river'),svgR=rv.querySelector('svg'),paths=[...svgR.querySelectorAll('path')],lit=svgR.querySelector('.lit'),boat=rv.querySelector('.boat');
-    const stops=$$('#trail .stop');let marks=[],len=0,stopLen=[],Hh=0,W=0,lastOn=-1;
-    const xAt=(y)=>W/2+W*.26*Math.sin(y/170+0.6)+W*.08*Math.sin(y/57);
+    const rv=trail.querySelector('.river'),svgR=rv.querySelector('svg'),paths=[...svgR.querySelectorAll('path')],lit=svgR.querySelector('.lit'),boat=rv.querySelector('.boat'),bar=$('#stopbar');
+    const stops=$$('#trail .stop');let W=0,H=0,len=0,cur=stops.length-1,boatL=0,anim=null;const xs=[],ls=[],btns=[];
+    const yAt=x=>H*.42+H*.16*Math.sin(x/W*Math.PI*3+.4)+H*.05*Math.sin(x/37);
+    stops.forEach((s,i)=>{const yr=s.querySelector('.when b').textContent,pl=s.querySelector('.when span').textContent;s.id='stop-'+i;s.setAttribute('role','tabpanel');
+      const b=document.createElement('button');b.className='stopbtn';b.setAttribute('role','tab');b.setAttribute('aria-controls','stop-'+i);b.id='tab-'+i;s.setAttribute('aria-labelledby','tab-'+i);
+      b.innerHTML=`<span class="mark"><i></i></span><b>${yr}</b><small>${pl}</small>`;b.onclick=()=>go(i);bar.appendChild(b);btns.push(b)});
+    const pointL=x=>{let lo=0,hi=len;for(let k=0;k<22;k++){const m=(lo+hi)/2;if(lit.getPointAtLength(m).x<x)lo=m;else hi=m}return lo};
+    const placeBoat=l=>{const a=lit.getPointAtLength(l),b=lit.getPointAtLength(Math.min(len,l+3));boat.style.transform=`translate(${a.x}px,${a.y}px) rotate(${Math.atan2(b.y-a.y,b.x-a.x)*57.3*.7}deg)`;lit.style.strokeDashoffset=len-l;boatL=l};
     const build=()=>{
-      W=rv.clientWidth;Hh=rv.clientHeight;const pts=[];
-      for(let y=0;y<=Hh;y+=6)pts.push([xAt(y).toFixed(1),y]);
-      const d='M'+pts.map(p=>p.join(',')).join(' L');
-      paths.forEach(p=>p.setAttribute('d',d));len=lit.getTotalLength();lit.style.strokeDasharray=len;
-      marks.forEach(m=>m.remove());marks=[];stopLen=[];
-      const top=rv.getBoundingClientRect().top;
-      stops.forEach(s=>{const y=s.getBoundingClientRect().top-top+16;const m=document.createElement('span');m.className='mark';m.innerHTML='<i></i>';
-        m.style.left=xAt(y)+'px';m.style.top=y+'px';rv.appendChild(m);marks.push(m);stopLen.push(y)});
-      lastOn=-1;update();
+      W=rv.clientWidth;H=rv.clientHeight;const pts=[];for(let x=-10;x<=W+10;x+=6)pts.push(x.toFixed(1)+','+yAt(x).toFixed(1));
+      const d='M'+pts.join(' L');paths.forEach(p=>p.setAttribute('d',d));len=lit.getTotalLength();lit.style.strokeDasharray=len;
+      const n=stops.length,pad=W<520?36:70;xs.length=0;ls.length=0;
+      btns.forEach((b,i)=>{const x=pad+(W-2*pad)*i/(n-1);xs.push(x);ls.push(pointL(x));b.style.left=x+'px';b.style.top=(yAt(x)-13)+'px'});
+      placeBoat(Math.max(0,ls[cur]-(W<520?22:34)));
     };
-    const pointAtY=y=>{let lo=0,hi=len;for(let i=0;i<22;i++){const mid=(lo+hi)/2;if(lit.getPointAtLength(mid).y<y)lo=mid;else hi=mid}return lo};
-    const update=()=>{
-      if(!len)return;const r=rv.getBoundingClientRect();const y=Math.max(0,Math.min(Hh,innerHeight*.55-r.top));
-      const l=pointAtY(y);lit.style.strokeDashoffset=len-l;
-      const a=lit.getPointAtLength(l),b=lit.getPointAtLength(Math.min(len,l+4));const ang=Math.atan2(b.y-a.y,b.x-a.x)*180/Math.PI-90;
-      boat.style.transform=`translate(${a.x}px,${a.y}px) rotate(${ang*.6}deg)`;
-      let on=-1;stopLen.forEach((sy,i)=>{if(y>=sy-4)on=i});
-      marks.forEach((m,i)=>{const was=m.classList.contains('on');m.classList.toggle('on',i<=on);stops[i].classList.toggle('on',i<=on);if(!was&&i<=on&&!reduce){m.classList.remove('pop');void m.offsetWidth;m.classList.add('pop')}});
+    const go=(i,focus)=>{
+      i=Math.max(0,Math.min(stops.length-1,i));const from=boatL,to=Math.max(0,ls[i]-(W<520?22:34));cur=i;
+      stops.forEach((s,k)=>s.classList.toggle('active',k===i));
+      btns.forEach((b,k)=>{b.setAttribute('aria-selected',k===i);b.tabIndex=k===i?0:-1;const m=b.querySelector('.mark');m.classList.toggle('on',k===i);m.classList.toggle('past',k<i)});
+      const m=btns[i].querySelector('.mark');if(!reduce){m.classList.remove('pop');void m.offsetWidth;m.classList.add('pop')}
+      if(focus)btns[i].focus();
+      $('#jprev').disabled=i===0;$('#jnext').disabled=i===stops.length-1;$('#jcount').textContent=`${String(i+1).padStart(2,'0')} / ${String(stops.length).padStart(2,'0')}`;
+      cancelAnimationFrame(anim);if(reduce){placeBoat(to);return}
+      const t0=performance.now(),dur=Math.min(1600,300+Math.abs(to-from)*1.4);
+      const step=t=>{const p=Math.min(1,(t-t0)/dur),e=p<.5?2*p*p:1-Math.pow(-2*p+2,2)/2;placeBoat(from+(to-from)*e);if(p<1)anim=requestAnimationFrame(step)};anim=requestAnimationFrame(step);
     };
-    new ResizeObserver(()=>build()).observe(trail);
+    bar.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){go(cur+1,true);e.preventDefault()}if(e.key==='ArrowLeft'){go(cur-1,true);e.preventDefault()}if(e.key==='Home'){go(0,true);e.preventDefault()}if(e.key==='End'){go(stops.length-1,true);e.preventDefault()}});
+    $('#jprev').onclick=()=>go(cur-1);$('#jnext').onclick=()=>go(cur+1);
+    new ResizeObserver(()=>{build()}).observe(rv);
     document.fonts&&document.fonts.ready.then(build);
-    addEventListener('scroll',()=>requestAnimationFrame(update),{passive:true});
-    build();
+    build();go(cur);
   }
 
   $('#menu').onclick=()=>$('#links').classList.toggle('open');
