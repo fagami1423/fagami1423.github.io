@@ -19,7 +19,7 @@
 <meta name="theme-color" content="#0e1336">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&family=Mukta:wght@500;700&family=Yatra+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,700&family=Mukta:wght@500;700&family=Yatra+One&display=swap" rel="stylesheet">
 <style>
 /* ---------- time-of-day tokens (the story drives the theme) ---------- */
 :root{
@@ -27,7 +27,7 @@
   --accent:#f5b942; --ink:#2a1600; --accent2:#ff8a80;
   --snow:#c7cdf5; --mb:#2b3068; --mm:#1b1e4b; --mf:#0c0e2a; --stars:1;
   --dhaka:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='12' viewBox='0 0 24 12'%3E%3Crect width='24' height='12' fill='%23a3192b'/%3E%3Cpath d='M0 12L6 6l6 6 6-6 6 6' fill='none' stroke='%23161214' stroke-width='2'/%3E%3Cpath d='M12 0l3 3-3 3-3-3z M0 0l3 3-3 3z M24 0l-3 3 3 3z' fill='%23f4efe6'/%3E%3Ccircle cx='6' cy='2' r='1' fill='%23f29b38'/%3E%3Ccircle cx='18' cy='2' r='1' fill='%23f29b38'/%3E%3C/svg%3E");
-  --serif:Fraunces,Georgia,serif; --dev:Mukta,"Noto Sans Devanagari",sans-serif;
+  --serif:"JetBrains Mono",ui-monospace,monospace; --dev:Mukta,"Noto Sans Devanagari",sans-serif;
 }
 :root[data-phase="firstlight"]{--text:#fff6f3;--muted:#e6d3e3;--faint:#b9a0bd;--surface:rgba(32,22,66,.58);--line:rgba(255,255,255,.16);--chip:rgba(255,255,255,.09);--accent:#ffc861;--ink:#2a1600;--accent2:#ff9fb1;--snow:#ffd9e3;--mb:#6b4f8f;--mm:#43306c;--mf:#241a44;--stars:.35}
 :root[data-phase="sunrise"]{--text:#2b1630;--muted:#664656;--faint:#9c7c88;--surface:rgba(255,250,242,.74);--line:rgba(90,40,50,.16);--chip:rgba(255,255,255,.6);--accent:#b8162f;--ink:#fff;--accent2:#b85400;--snow:#fff3df;--mb:#d29a87;--mm:#a56d78;--mf:#6e4258;--stars:0}
@@ -37,7 +37,7 @@
 
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{color:var(--text);background:#0e1336;font:16px/1.7 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;transition:color .9s ease}
+body{color:var(--text);background:#0e1336;font:15px/1.75 "JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;-webkit-font-smoothing:antialiased;overflow-x:hidden;transition:color .9s ease}
 a{color:var(--accent);text-decoration:none}
 ::selection{background:var(--accent);color:var(--ink)}
 .wrap{max-width:1100px;margin:0 auto;padding:0 20px}
@@ -93,7 +93,7 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:6
 .icon-btn:hover{border-color:var(--accent);transform:translateY(-1px)}
 .icon-btn svg{width:18px;height:18px}
 .menu-btn{display:none}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:12px;font:600 15px Inter,sans-serif;border:1px solid var(--line);color:var(--text);background:var(--surface);cursor:pointer;transition:transform .2s,border-color .2s,box-shadow .2s,background .9s,color .9s;backdrop-filter:blur(8px)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:12px;font:600 15px "JetBrains Mono",monospace;border:1px solid var(--line);color:var(--text);background:var(--surface);cursor:pointer;transition:transform .2s,border-color .2s,box-shadow .2s,background .9s,color .9s;backdrop-filter:blur(8px)}
 .btn:hover{transform:translateY(-2px);border-color:var(--accent)}
 .btn.primary{background:var(--accent);border-color:var(--accent);color:var(--ink);box-shadow:0 10px 28px color-mix(in srgb,var(--accent) 35%,transparent)}
 .btn.sm{padding:8px 14px;font-size:13.5px;border-radius:10px}
@@ -108,9 +108,9 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:6
 @keyframes pulse{70%{box-shadow:0 0 0 8px rgba(74,222,128,0)}100%{box-shadow:0 0 0 0 rgba(74,222,128,0)}}
 .namaste{font:400 clamp(30px,4.4vw,46px)/1.2 "Yatra One",var(--dev);color:var(--accent);display:block;margin-bottom:6px}
 .namaste small{font:500 14px "JetBrains Mono",monospace;color:var(--faint);margin-left:10px;letter-spacing:.02em}
-h1{font-family:var(--serif);font-weight:700;font-size:clamp(40px,6.4vw,74px);line-height:1.02;letter-spacing:-.025em;max-width:900px}
+h1{font-family:var(--serif);font-weight:800;font-size:clamp(32px,4.6vw,58px);line-height:1.08;letter-spacing:-.04em;max-width:900px}
 h1 em{font-style:italic;font-weight:500;color:var(--accent)}
-.lede{color:var(--muted);font-size:18px;max-width:600px;margin-top:22px}
+.lede{color:var(--muted);font-size:16px;max-width:600px;margin-top:22px}
 .journey-note{font:italic 500 17px/1.5 var(--serif);color:var(--accent);margin-top:14px;max-width:600px}
 .cta{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}
 .socials{display:flex;gap:10px;margin-top:22px}
@@ -142,11 +142,11 @@ section{padding:110px 0;position:relative}
 .eyebrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font:500 13px "JetBrains Mono",monospace;color:var(--accent);letter-spacing:.04em;margin-bottom:12px}
 .eyebrow [lang="ne"]{font:700 15px var(--dev);letter-spacing:0}
 .eyebrow .t{color:var(--faint)}
-h2{font-family:var(--serif);font-weight:700;font-size:clamp(30px,4.4vw,48px);line-height:1.08;letter-spacing:-.02em;margin-bottom:14px}
+h2{font-family:var(--serif);font-weight:800;font-size:clamp(26px,3.6vw,40px);line-height:1.15;letter-spacing:-.035em;margin-bottom:14px}
 h2 em{font-style:italic;font-weight:500;color:var(--accent)}
-.sub{color:var(--muted);max-width:640px;margin-bottom:42px;font-size:17px}
+.sub{color:var(--muted);max-width:640px;margin-bottom:42px;font-size:15.5px}
 .story{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:start}
-.story p{color:var(--muted);font-size:17px;margin-bottom:18px}
+.story p{color:var(--muted);font-size:15.5px;margin-bottom:18px}
 .story p strong{color:var(--text)}
 .story p.drop::first-letter{font:700 58px/.9 var(--serif);float:left;margin:6px 10px 0 0;color:var(--accent)}
 .pillars{display:grid;grid-template-columns:1fr 1fr;gap:12px}
@@ -209,14 +209,23 @@ h2 em{font-style:italic;font-weight:500;color:var(--accent)}
 .label{font:500 11.5px "JetBrains Mono",monospace;color:var(--accent2);text-transform:uppercase;letter-spacing:.07em}
 .case h3{font:700 21px/1.25 var(--serif);margin:8px 0 14px}
 .case dl{display:grid;gap:12px;flex:1}
-.case dt{font:600 12px Inter,sans-serif;text-transform:uppercase;letter-spacing:.06em;color:var(--faint)}
+.case dt{font:600 12px "JetBrains Mono",monospace;text-transform:uppercase;letter-spacing:.06em;color:var(--faint)}
 .case dd{color:var(--muted);font-size:14.5px}
 .impact{margin-top:18px;padding-top:16px;border-top:1px dashed var(--line);font-size:14px;color:var(--muted)}
 .impact b{display:block;font:700 28px/1.1 var(--serif);color:var(--accent);letter-spacing:-.01em}
 
 /* ---------- projects: scrolls & letters ---------- */
-.pm .track{--dur:70s;gap:46px;padding:10px 0 18px;align-items:stretch}
-.card{width:300px;flex:none;display:flex;flex-direction:column;position:relative;transition:transform .35s}
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:44px 56px;padding:8px 14px}
+.card.hide{display:none}
+.card.show{animation:unroll .55s cubic-bezier(.2,.8,.2,1) both}
+@keyframes unroll{from{opacity:0;transform:translateY(14px) scaleY(.92)}to{opacity:1;transform:none}}
+.pager{display:flex;justify-content:center;align-items:center;gap:8px;margin-top:34px;flex-wrap:wrap}
+.pager button{font:500 13.5px "JetBrains Mono",monospace;min-width:40px;height:40px;padding:0 14px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--muted);cursor:pointer;transition:all .2s;backdrop-filter:blur(8px)}
+.pager button:hover:not(:disabled){color:var(--text);border-color:var(--accent)}
+.pager button[aria-current="page"]{background:var(--accent);border-color:var(--accent);color:var(--ink)}
+.pager button:disabled{opacity:.4;cursor:default}
+.pager .pinfo{font:500 12.5px "JetBrains Mono",monospace;color:var(--faint);margin:0 6px}
+.card{display:flex;flex-direction:column;position:relative;transition:transform .35s}
 .card:hover{transform:translateY(-6px) rotate(-.6deg)}
 .rod{height:16px;margin:0 -14px;border-radius:9px;position:relative;z-index:2;
   background:linear-gradient(180deg,#8a5a2b,#c48a4f 35%,#7a4c22 70%,#4e2f13);box-shadow:0 4px 8px rgba(0,0,0,.35)}
@@ -250,7 +259,7 @@ h2 em{font-style:italic;font-weight:500;color:var(--accent)}
 .track li{display:flex;align-items:center;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 20px;white-space:nowrap;font-weight:600;font-size:15px;transition:border-color .2s,transform .2s}
 .track li:hover{border-color:var(--accent);transform:translateY(-3px)}
 .lg{flex:none;width:30px;height:30px;background:var(--c);-webkit-mask:var(--i) center/contain no-repeat;mask:var(--i) center/contain no-repeat}
-.lg.txt{-webkit-mask:none;mask:none;border-radius:8px;display:grid;place-items:center;color:#fff;font:800 17px Inter,sans-serif;font-style:normal}
+.lg.txt{-webkit-mask:none;mask:none;border-radius:8px;display:grid;place-items:center;color:#fff;font:800 17px "JetBrains Mono",monospace;font-style:normal}
 @keyframes marquee{to{transform:translateX(calc(-50% - 7px))}}
 
 /* ---------- education ---------- */
@@ -289,7 +298,7 @@ footer [lang="ne"]{color:#f5b942;font-weight:700}
 :root[data-phase="sunrise"]{--stupa:#fff1de;--stupa-hi:#fffaf2;--stupa-lo:#e2b993}
 :root[data-phase="day"]{--stupa:#f7f7f2;--stupa-hi:#ffffff;--stupa-lo:#cfd6dc}
 .hero-in{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:center}
-.hero h1{font-size:clamp(38px,5.2vw,66px)}
+.hero h1{font-size:clamp(30px,4.2vw,54px)}
 .art{position:relative;height:610px;display:flex;align-items:flex-end;justify-content:center}
 .stupa{position:absolute;left:50%;top:0;width:500px;max-width:118%;transform:translateX(-50%);overflow:visible;filter:drop-shadow(0 0 30px rgba(200,205,255,.12))}
 .stupa .fl{fill:none;stroke:var(--faint);stroke-width:1;opacity:.7}
@@ -327,7 +336,6 @@ footer [lang="ne"]{color:#f5b942;font-weight:700}
   .stele{width:300px;padding:22px 18px 16px}
   .carved{font-size:10.6px}
   .cue{display:none}
-  .card{width:262px}
 }
 @media (prefers-reduced-motion:reduce){.carved .ln{clip-path:none}}
 
@@ -337,6 +345,7 @@ footer [lang="ne"]{color:#f5b942;font-weight:700}
 @media (max-width:960px){
   .story{grid-template-columns:1fr}
   .cases,.grid{grid-template-columns:1fr 1fr}
+  .pgrid{grid-template-columns:1fr 1fr}
   .facts{grid-template-columns:1fr 1fr}
   .fact{border-bottom:1px solid var(--line)}
   .fact:nth-child(2n){border-right:0}
@@ -362,6 +371,7 @@ footer [lang="ne"]{color:#f5b942;font-weight:700}
     .when{text-align:left;display:flex;gap:10px;align-items:baseline}
   .when b{font-size:22px}
   .stat b{font-size:28px}
+  .pgrid{grid-template-columns:1fr;padding:8px 12px}
   .contact{padding:44px 20px}
   .hero-in{padding-bottom:30vh}
   :root[data-mtn="hero"] .mountains{transform:translateY(48%)}
@@ -595,8 +605,8 @@ footer [lang="ne"]{color:#f5b942;font-weight:700}
 <section id="projects"><div class="wrap">
   <p class="eyebrow"><span lang="ne">अध्याय ४</span><span>Projects</span><span class="t">· open source</span></p>
   <h2 class="reveal">Things I've <em>built.</em></h2>
-  <p class="sub reveal">Open-source projects on GitHub, unrolled like letters from the past.</p>
-  <div class="marquee pm reveal"><div class="track ptrack" id="grid">
+  <p class="sub reveal">Open-source projects on GitHub, written up like letters from the past.</p>
+  <div class="pgrid reveal" id="grid">
     <article class="card" data-cat="ai" data-repo="ASL-TransferLearning" data-emoji="🤟">
       <h3>ASL Alphabet Recognition</h3>
       <p>Real-time sign-language recognition from a webcam using InceptionV3 transfer learning, with text-to-speech output.</p>
@@ -627,7 +637,8 @@ footer [lang="ne"]{color:#f5b942;font-weight:700}
       <p>An intent-classification chatbot in PyTorch, served with FastAPI and retrainable from MongoDB through a REST API.</p>
       <div class="tags"><span class="tag">PyTorch</span><span class="tag">NLP</span><span class="tag">FastAPI</span></div>
     </article>
-  </div></div>
+  </div>
+  <div class="pager" id="pager" role="navigation" aria-label="Project pages"></div>
 </div></section>
 
 <section id="skills"><div class="wrap">
@@ -704,6 +715,22 @@ footer [lang="ne"]{color:#f5b942;font-weight:700}
     const paper=document.createElement('div');paper.className='paper';while(c.firstChild)paper.appendChild(c.firstChild);
     c.append(Object.assign(document.createElement('div'),{className:'rod'}),paper,Object.assign(document.createElement('div'),{className:'rod'}));
   });
+
+  // projects: paginated grid
+  const cards=$$('#grid .card'),pager=$('#pager');let page=0;
+  const per=()=>innerWidth<=640?2:innerWidth<=960?4:3;
+  const renderPage=(scroll)=>{
+    const n=per(),pages=Math.ceil(cards.length/n);page=Math.min(page,pages-1);
+    cards.forEach((c,i)=>{const on=i>=page*n&&i<(page+1)*n;c.classList.toggle('hide',!on);c.classList.remove('show');if(on){void c.offsetWidth;c.classList.add('show');c.style.animationDelay=((i-page*n)*90)+'ms'}});
+    let b=`<button data-go="prev" ${page===0?'disabled':''} aria-label="Previous page">← prev</button>`;
+    for(let i=0;i<pages;i++)b+=`<button data-go="${i}" ${i===page?'aria-current="page"':''} aria-label="Page ${i+1}">${String(i+1).padStart(2,'0')}</button>`;
+    b+=`<button data-go="next" ${page===pages-1?'disabled':''} aria-label="Next page">next →</button><span class="pinfo">${page*n+1}–${Math.min(cards.length,(page+1)*n)} of ${cards.length}</span>`;
+    pager.innerHTML=b;
+    if(scroll)$('#projects').scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});
+  };
+  pager.addEventListener('click',e=>{const g=e.target.closest('button');if(!g||g.disabled)return;const v=g.dataset.go;page=v==='prev'?page-1:v==='next'?page+1:+v;renderPage(true)});
+  let lastPer=per();addEventListener('resize',()=>{if(per()!==lastPer){lastPer=per();page=0;renderPage(false)}});
+  renderPage(false);
 
   // loops (skills + project scrolls): duplicate once for a seamless marquee
   $$('.track').forEach(t=>[...t.children].forEach(li=>{const c=li.cloneNode(true);c.setAttribute('aria-hidden','true');c.setAttribute('inert','');t.appendChild(c)}));
