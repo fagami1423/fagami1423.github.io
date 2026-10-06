@@ -19,7 +19,7 @@
 <meta name="theme-color" content="#0e1336">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,700&family=Mukta:wght@500;700&family=Yatra+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,700&family=Mukta:wght@500;700&family=Yatra+One&display=swap" rel="stylesheet">
 <style>
 /* ---------- time-of-day tokens (the story drives the theme) ---------- */
 :root{
@@ -37,7 +37,7 @@
 
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{color:var(--text);background:#0e1336;font:15px/1.75 "JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;-webkit-font-smoothing:antialiased;overflow-x:hidden;transition:color .9s ease}
+body{color:var(--text);background:#0e1336;font:16px/1.7 Geist,"Segoe UI",system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;transition:color .9s ease}
 a{color:var(--accent);text-decoration:none}
 ::selection{background:var(--accent);color:var(--ink)}
 .wrap{max-width:1100px;margin:0 auto;padding:0 20px}
@@ -110,7 +110,7 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:6
 .namaste small{font:500 14px "JetBrains Mono",monospace;color:var(--faint);margin-left:10px;letter-spacing:.02em}
 h1{font-family:var(--serif);font-weight:800;font-size:clamp(32px,4.6vw,58px);line-height:1.08;letter-spacing:-.04em;max-width:900px}
 h1 em{font-style:italic;font-weight:500;color:var(--accent)}
-.lede{color:var(--muted);font-size:16px;max-width:600px;margin-top:22px}
+.lede{color:var(--muted);font-size:17.5px;max-width:600px;margin-top:22px}
 .journey-note{font:italic 500 17px/1.5 var(--serif);color:var(--accent);margin-top:14px;max-width:600px}
 .cta{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}
 .socials{display:flex;gap:10px;margin-top:22px}
@@ -144,9 +144,9 @@ section{padding:110px 0;position:relative}
 .eyebrow .t{color:var(--faint)}
 h2{font-family:var(--serif);font-weight:800;font-size:clamp(26px,3.6vw,40px);line-height:1.15;letter-spacing:-.035em;margin-bottom:14px}
 h2 em{font-style:italic;font-weight:500;color:var(--accent)}
-.sub{color:var(--muted);max-width:640px;margin-bottom:42px;font-size:15.5px}
+.sub{color:var(--muted);max-width:640px;margin-bottom:42px;font-size:17px}
 .story{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:start}
-.story p{color:var(--muted);font-size:15.5px;margin-bottom:18px}
+.story p{color:var(--muted);font-size:17px;margin-bottom:18px}
 .story p strong{color:var(--text)}
 .story p.drop::first-letter{font:700 58px/.9 var(--serif);float:left;margin:6px 10px 0 0;color:var(--accent)}
 .pillars{display:grid;grid-template-columns:1fr 1fr;gap:12px}
@@ -188,15 +188,17 @@ h2 em{font-style:italic;font-weight:500;color:var(--accent)}
 .when b{display:block;font:700 26px/1 var(--serif);letter-spacing:-.01em}
 .when span{font:500 11.5px "JetBrains Mono",monospace;color:var(--faint);text-transform:uppercase;letter-spacing:.06em}
 .card-x{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:24px 26px;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);transition:background .9s,border-color .9s}
+.brk .card-x{border-style:dashed}
 .card-x .line{font:italic 500 18px/1.4 var(--serif);color:var(--accent);margin-bottom:12px}
 .card-x h3{font-size:19px;letter-spacing:-.01em}
 .card-x h3 span{color:var(--muted);font-weight:500}
+.card-x h3 .now{color:var(--ink)}
 .meta{font:500 13px "JetBrains Mono",monospace;color:var(--faint);margin:4px 0 14px}
 .card-x ul{list-style:none;display:grid;gap:9px}
-.card-x li{color:var(--muted);padding-left:20px;position:relative;font-size:15px}
+.card-x li{color:var(--muted);padding-left:20px;position:relative;font-size:15.5px}
 .card-x li::before{content:"";position:absolute;left:3px;top:10px;width:7px;height:7px;transform:rotate(45deg);background:var(--accent);opacity:.75}
 .card-x li b{color:var(--text)}
-.now{display:inline-block;font:600 11px "JetBrains Mono",monospace;background:var(--accent);color:var(--ink);padding:2px 8px;border-radius:6px;margin-left:8px;vertical-align:3px}
+.now{display:inline-block;font:700 12px/1 "JetBrains Mono",monospace;letter-spacing:.08em;background:var(--accent);color:var(--ink);padding:5px 9px;border-radius:6px;margin-left:10px;vertical-align:3px;box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 25%,transparent)}
 .tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px}
 .tag{font:12px "JetBrains Mono",monospace;background:var(--chip);color:var(--muted);padding:4px 10px;border-radius:7px;border:1px solid var(--line)}
 
@@ -428,7 +430,7 @@ footer [lang="ne"]{color:#f5b942;font-weight:700}
     <span class="namaste"><span lang="ne">नमस्ते</span><small>namaste · hello</small></span>
     <h1>I'm Raj. I build systems that <em>run themselves.</em></h1>
     <p class="lede">An automation &amp; integration engineer with 5+ years of software experience. I connect CRMs, e-commerce platforms, messaging and video tools through APIs and workflows, so teams stop doing by hand what software can do reliably.</p>
-    <p class="journey-note">From the Kathmandu Valley to the Selkirk Mountains of Nelson, BC: here's the journey.</p>
+    <p class="journey-note">From Myagdi, beneath Dhaulagiri, to the Selkirk Mountains of Nelson, BC: here's the journey.</p>
     <div class="cta">
       <a class="btn primary" href="#work">See my work <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       <a class="btn" href="Raj-Phagami-Resume.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>Download résumé</a>
@@ -453,8 +455,8 @@ footer [lang="ne"]{color:#f5b942;font-weight:700}
 </svg>
   <figure class="stele">
     <div class="stele-top"><svg viewBox="0 0 24 24" class="glyph"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1"/></svg><span lang="ne">शिलालेख</span><svg viewBox="0 0 24 24" class="glyph"><path d="M16 3.5a8.5 8.5 0 1 0 4.5 13.6A7 7 0 0 1 16 3.5z"/></svg></div>
-    <pre class="carved"><code><span class="ln" style="--d:0"><i class="k">const</i> raj = {</span><span class="ln" style="--d:1">  role:  <i class="s">"Automation Engineer"</i>,</span><span class="ln" style="--d:2">  base:  <i class="s">"Nelson, BC"</i>,</span><span class="ln" style="--d:3">  roots: <i class="s">"Kathmandu"</i>,</span><span class="ln" style="--d:4">  stack: [<i class="s">"APIs"</i>, <i class="s">"Keap"</i>, <i class="s">"Make"</i>, <i class="s">"Go"</i>],</span><span class="ln" style="--d:5">};</span><span class="ln" style="--d:6">raj.<i class="f">automate</i>(manualWork);</span><span class="ln" style="--d:7"><i class="c">// ✔ 50+ workflows shipped</i></span></code></pre>
-    <div class="stele-foot">Nelson · Kathmandu</div>
+    <pre class="carved"><code><span class="ln" style="--d:0"><i class="k">const</i> raj = {</span><span class="ln" style="--d:1">  role:  <i class="s">"Automation Engineer"</i>,</span><span class="ln" style="--d:2">  base:  <i class="s">"Nelson, BC"</i>,</span><span class="ln" style="--d:3">  roots: <i class="s">"Myagdi, Nepal"</i>,</span><span class="ln" style="--d:4">  stack: [<i class="s">"APIs"</i>, <i class="s">"Keap"</i>, <i class="s">"Make"</i>, <i class="s">"Go"</i>],</span><span class="ln" style="--d:5">};</span><span class="ln" style="--d:6">raj.<i class="f">automate</i>(manualWork);</span><span class="ln" style="--d:7"><i class="c">// ✔ 50+ workflows shipped</i></span></code></pre>
+    <div class="stele-foot">Myagdi · Nelson</div>
   </figure>
 </div>
   </div>
@@ -481,11 +483,11 @@ footer [lang="ne"]{color:#f5b942;font-weight:700}
 </div></div>
 
 <section id="story"><div class="wrap">
-  <p class="eyebrow"><span lang="ne">अध्याय १</span><span>Chapter one</span><span class="t">· Kathmandu</span></p>
-  <h2 class="reveal">It started in the <em>Kathmandu Valley.</em></h2>
+  <p class="eyebrow"><span lang="ne">अध्याय १</span><span>Chapter one</span><span class="t">· Myagdi → Kathmandu</span></p>
+  <h2 class="reveal">It started beneath <em>Dhaulagiri.</em></h2>
   <div class="story">
     <div class="reveal">
-      <p class="drop">Before the sun clears the Himalaya, Kathmandu is already awake. Shutters go up, kettles go on, and the city gets to work before it's light. That's where I learned to build software. I finished a <strong>BSc in Computing (Software Engineering)</strong> through the University of Northampton at NAAMI College, and started shipping PHP and Laravel sites for real clients.</p>
+      <p>I was born in <strong>Myagdi</strong>, a district in western Nepal in the shadow of Dhaulagiri, the world's seventh-highest mountain, and spent my first eight years there. Then I moved to <strong>Kathmandu</strong> for school, and that's where I eventually learned to build software. I finished a <strong>BSc in Computing (Software Engineering)</strong> through the University of Northampton at NAAMI College, and started shipping PHP and Laravel sites for real clients.</p>
       <p>Since then I've built NLP pipelines for Japanese text, real-time monitoring for EV charging stations in Canada, and earned a <strong>Postgraduate Diploma in AI &amp; Machine Learning</strong> from Lambton College. Today I run the automation and integration layer behind a subscription business in <strong>Nelson, British Columbia</strong>, another mountain town.</p>
       <p>The thread through all of it: find the manual, error-prone process and replace it with something that just works.</p>
     </div>
@@ -500,8 +502,8 @@ footer [lang="ne"]{color:#f5b942;font-weight:700}
 
 <section id="journey"><div class="wrap">
   <p class="eyebrow"><span lang="ne">अध्याय २</span><span>The journey</span><span class="t">· 2019 → now</span></p>
-  <h2 class="reveal">Four stops, <em>one direction.</em></h2>
-  <p class="sub reveal">Each role took me a little further along the trail, from web development to NLP, research engineering and systems automation.</p>
+  <h2 class="reveal">Five stops, <em>one direction.</em></h2>
+  <p class="sub reveal">Each stop took me a little further downstream, from web development to NLP, research engineering, a focused career break and systems automation.</p>
   <div class="trail" id="trail">
     <div class="river" aria-hidden="true"><svg><path class="bank"/><path class="water"/><path class="flow"/><path class="flow f2"/><path class="lit"/></svg><span class="boat"><svg viewBox="0 0 34 20"><path d="M2 9h30l-5 8H7z" fill="#8a5a2b"/><path d="M2 9h30" stroke="#5c3714" stroke-width="2"/><path d="M17 1v8" stroke="#5c3714" stroke-width="1.6"/><path d="M17 2l9 6h-9z" fill="#f3efe4"/></svg></span></div>
     <div class="stop reveal">
@@ -522,7 +524,7 @@ footer [lang="ne"]{color:#f5b942;font-weight:700}
       <div class="when"><b>2021</b><span>Kathmandu</span></div>
       <div class="card-x">
         <p class="line">Teaching machines to read.</p>
-        <h3>Software Engineer, NLP <span>@ Terakoya Academia</span></h3>
+        <h3>Software Engineer (Data Annotation NLP) <span>@ Terakoya Academia</span></h3>
         <p class="meta">May 2021 – Dec 2021 · Kathmandu, Nepal</p>
         <ul>
           <li>Built NLP pipelines for a <b>Japanese-language data-annotation system</b>, using Named Entity Recognition and document-similarity models.</li>
@@ -537,8 +539,8 @@ footer [lang="ne"]{color:#f5b942;font-weight:700}
       <div class="when"><b>2022</b><span>Toronto</span></div>
       <div class="card-x">
         <p class="line">A new country, and the river widens.</p>
-        <h3>Graduate &amp; Student Research Assistant <span>@ Lambton College</span></h3>
-        <p class="meta">Aug 2022 – Apr 2024 · Toronto, ON (remote)</p>
+        <h3>Student &amp; Graduate Research Assistant <span>@ Lambton College</span></h3>
+        <p class="meta">Aug 2022 – Apr 2024 · Toronto, ON (remote) · Student RA Aug 2022 – Aug 2023 · Graduate RA Sep 2023 – Apr 2024</p>
         <ul>
           <li>Led design of a <b>real-time monitoring control panel</b> for time-series data from EV charging stations, using Django, Vue.js and PostgreSQL.</li>
           <li>Helped build a MODBUS/TCP gateway bridge that cut station onboarding <b>from 1 month to 30 minutes</b>.</li>
@@ -546,6 +548,21 @@ footer [lang="ne"]{color:#f5b942;font-weight:700}
           <li>Ran regular code reviews to keep coding standards consistent across the team.</li>
         </ul>
         <div class="tags"><span class="tag">Django</span><span class="tag">Vue.js</span><span class="tag">PostgreSQL</span><span class="tag">InfluxDB</span><span class="tag">Grafana</span><span class="tag">AWX</span><span class="tag">AWS EC2</span></div>
+      </div>
+    </div>
+    <div class="stop reveal brk">
+      <div class="when"><b>2024</b><span>Nelson, BC</span></div>
+      <div class="card-x">
+        <p class="line">A pause on the riverbank to sharpen the tools.</p>
+        <h3>Professional development <span>· Career break</span></h3>
+        <p class="meta">Apr 2024 – Aug 2025 · Nelson, BC</p>
+        <ul>
+          <li>Took a focused career break to strengthen my technical skill set and prepare for the next stage of my career, concentrating on <b>AI/ML</b> and <b>full-stack development</b>.</li>
+          <li>Deepened expertise in applied AI/ML (generative AI, Transformer models and NLP), building on my postgraduate specialization.</li>
+          <li>Sharpened full-stack skills across Python (Django, FastAPI) and modern front-end frameworks (React).</li>
+          <li>Strengthened cloud and DevOps capabilities, including AWS, Docker and CI/CD workflows, before returning to the workforce at FLFE.</li>
+        </ul>
+        <div class="tags"><span class="tag">Generative AI</span><span class="tag">Transformers</span><span class="tag">Django</span><span class="tag">FastAPI</span><span class="tag">React</span><span class="tag">AWS</span><span class="tag">Docker</span></div>
       </div>
     </div>
     <div class="stop reveal">
@@ -689,7 +706,7 @@ footer [lang="ne"]{color:#f5b942;font-weight:700}
 <footer>
   <div class="band"></div>
   <div class="wrap">
-    <span>© <span id="y"></span> Raj Phagami · Nelson, BC · roots in Kathmandu</span>
+    <span>© <span id="y"></span> Raj Phagami · Nelson, BC · roots in Myagdi, Nepal</span>
     <span><span lang="ne">धन्यवाद</span> · thank you for reading</span>
   </div>
 </footer>
