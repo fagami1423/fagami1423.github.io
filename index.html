@@ -256,6 +256,14 @@ h2 em{font-style:italic;font-weight:500;color:var(--accent)}
     repeating-linear-gradient(180deg,rgba(120,80,30,.06) 0 1px,transparent 1px 26px),
     linear-gradient(90deg,#d8bd85,#f1e1b8 12%,#f4e6c3 50%,#ecd9a8 88%,#d3b679);
   box-shadow:inset 0 10px 14px -10px rgba(80,45,10,.5),inset 0 -10px 14px -10px rgba(80,45,10,.5)}
+.quill{position:absolute;right:10px;bottom:-4px;width:46px;height:104px;transform:rotate(18deg);transform-origin:80% 90%;filter:drop-shadow(-3px 4px 3px rgba(60,30,5,.35));pointer-events:none;transition:transform .5s cubic-bezier(.3,1.4,.5,1)}
+.quill .vane{fill:url(#qv)}
+.quill .barbs path{stroke:#9c8460;stroke-width:.6;opacity:.7}
+.quill .shaft{fill:none;stroke:#6b4a22;stroke-width:1.4;stroke-linecap:round}
+.quill .nib{fill:#2b1a0a}
+.card:hover .quill{transform:rotate(8deg) translateY(-4px)}
+.paper{padding-bottom:30px}
+
 .card .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
 .card .emoji{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;font-size:20px;
   background:radial-gradient(circle at 35% 30%,#d9443a,#9e1b1b 60%,#6d0f0f);box-shadow:0 2px 0 #5a0c0c,0 4px 10px rgba(110,15,15,.4),inset 0 0 0 3px rgba(255,255,255,.12)}
@@ -741,13 +749,14 @@ footer [lang="ne"]{color:#f5b942;font-weight:700}
   // skill logos: duplicate for a seamless loop
 
   // project cards: GitHub links
+  const QUILL='<svg class="quill" viewBox="0 0 40 92" aria-hidden="true"><defs><linearGradient id="qv" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fffaf0"/><stop offset=".55" stop-color="#e9dcc3"/><stop offset="1" stop-color="#b9a07a"/></linearGradient></defs><path class="vane" d="M31 3 C 16 14, 7 34, 9 58 C 10 62, 12 64, 14 64 C 20 50, 27 30, 31 3 Z M31 3 C 37 16, 36 34, 28 52 C 26 50, 25 46, 25 44 C 28 30, 30 16, 31 3 Z"/><g class="barbs"><path d="M28,14 L20,22"/><path d="M26.5,22 L16,30"/><path d="M25,30 L13,38"/><path d="M23.5,38 L11,46"/><path d="M22,46 L10,54"/><path d="M20.5,54 L11,60"/><path d="M29,12 L34,19"/><path d="M27.8,20 L33.5,28"/><path d="M26.6,28 L32,36"/><path d="M25.2,36 L30,44"/><path d="M23.8,44 L27.5,51"/></g><path class="shaft" d="M31 3 C 28 28, 21 52, 9 86"/><path class="nib" d="M11.5 80 L 7 90 L 9.5 82.5 Z"/></svg>';
   const GH='<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.2c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5z"/></svg>';
   $$('.socials a[aria-label="GitHub"]').forEach(a=>a.innerHTML=GH);
   $$('#grid .card').forEach(c=>{
     const url='https://github.com/fagami1423/'+c.dataset.repo;
     c.insertAdjacentHTML('afterbegin',`<div class="top"><span class="emoji">${c.dataset.emoji}</span><a class="gh" href="${url}" target="_blank" rel="noopener" aria-label="View ${c.dataset.repo} on GitHub">${GH}</a></div>`);
     c.insertAdjacentHTML('beforeend',`<a class="more" href="${url}" target="_blank" rel="noopener">Read the scroll →</a>`);
-    const paper=document.createElement('div');paper.className='paper';while(c.firstChild)paper.appendChild(c.firstChild);
+    const paper=document.createElement('div');paper.className='paper';while(c.firstChild)paper.appendChild(c.firstChild);paper.insertAdjacentHTML('beforeend',QUILL);
     c.append(Object.assign(document.createElement('div'),{className:'rod'}),paper,Object.assign(document.createElement('div'),{className:'rod'}));
   });
 
