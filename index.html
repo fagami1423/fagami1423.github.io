@@ -326,6 +326,13 @@ footer [lang="ne"]{color:#f5b942;font-weight:700}
 .hero-in{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:center}
 .hero h1{font-size:clamp(30px,4.2vw,54px)}
 .art{position:relative;height:610px;display:flex;align-items:flex-end;justify-content:center}
+.temple{position:absolute;right:-22%;top:178px;width:215px;overflow:visible;filter:drop-shadow(0 10px 18px rgba(0,0,0,.35));transition:filter 1s}
+.temple .t-step{fill:#a39686}.temple .s2{fill:#b2a594}.temple .s3{fill:#c0b3a1}
+.temple .t-wall{fill:#9b3b2a}.temple .t-door{fill:#3a1f12}
+.temple .t-win rect{fill:#4a2a18}.temple .t-win path{stroke:#c08a4a;stroke-width:1}
+.temple .t-strut path{stroke:#5a3418;stroke-width:2}
+.temple .t-roof{fill:#4a2e1f}
+:root[data-phase="predawn"] .temple{filter:brightness(.72) saturate(.85) drop-shadow(0 10px 18px rgba(0,0,0,.4))}
 .stupa{position:absolute;left:50%;top:0;width:500px;max-width:118%;transform:translateX(-50%);overflow:visible;filter:drop-shadow(0 0 30px rgba(200,205,255,.12))}
 .stupa .fl{fill:none;stroke:var(--faint);stroke-width:1;opacity:.7}
 .stupa .flaglines rect{opacity:.9}
@@ -355,10 +362,12 @@ footer [lang="ne"]{color:#f5b942;font-weight:700}
 @media (max-width:960px){
   .hero-in{grid-template-columns:1fr}
   .art{height:560px;margin-top:20px}
+  .temple{right:2%}
 }
 @media (max-width:640px){
   .art{height:500px}
   .stupa{width:400px}
+  .temple{right:-5%;top:118px;width:128px}
   .stele{width:300px;padding:22px 18px 16px}
   .carved{font-size:10.6px}
   .cue{display:none}
@@ -477,6 +486,21 @@ footer [lang="ne"]{color:#f5b942;font-weight:700}
 <rect class="harmika" x="170" y="168" width="60" height="6"/>
 <path fill="url(#dome)" d="M84,300 A116,124 0 0 1 316,300 Z"/>
 <path class="base" d="M66,300h268v12H66z M52,312h296v12H52z M38,324h324v12H38z"/>
+</svg>
+  <svg class="temple" viewBox="0 0 200 300" aria-hidden="true">
+<path class="t-step" d="M18 270h164v16H18z"/><path class="t-step s2" d="M30 254h140v16H30z"/><path class="t-step s3" d="M42 238h116v16H42z"/>
+<rect class="t-wall" x="56" y="188" width="88" height="50"/>
+<rect class="t-door" x="88" y="204" width="24" height="34"/><path d="M84 204h32M86 200h28" stroke="#d6a23c" stroke-width="2"/>
+<g class="t-win"><rect x="63" y="204" width="16" height="16"/><rect x="121" y="204" width="16" height="16"/><path d="M63 204l16 16M79 204l-16 16M121 204l16 16M137 204l-16 16"/></g>
+<g class="t-strut"><path d="M58 188l-18 8M142 188l18 8M76 188l-10 8M124 188l10 8"/></g>
+<path class="t-roof" d="M20 198 Q46 194 70 160 L130 160 Q154 194 180 198 Z"/><path d="M20 198 Q100 192 180 198" stroke="#d6a23c" stroke-width="2.4" fill="none"/>
+<rect class="t-wall" x="72" y="134" width="56" height="26"/><rect class="t-door" x="94" y="140" width="12" height="20"/>
+<path class="t-roof" d="M38 140 Q58 136 80 108 L120 108 Q142 136 162 140 Z"/><path d="M38 140 Q100 135 162 140" stroke="#d6a23c" stroke-width="2.2" fill="none"/>
+<rect class="t-wall" x="85" y="86" width="30" height="22"/>
+<path class="t-roof" d="M56 90 Q72 86 90 60 L110 60 Q128 86 144 90 Z"/><path d="M56 90 Q100 86 144 90" stroke="#d6a23c" stroke-width="2" fill="none"/>
+<path fill="#d6a23c" d="M92 60h16v-6H92z M100 16l6 38H94z M90 30q10-8 20 0z"/>
+<g fill="#d6a23c"><circle cx="22" cy="201" r="2.4"/><circle cx="178" cy="201" r="2.4"/><circle cx="40" cy="143" r="2.2"/><circle cx="160" cy="143" r="2.2"/><circle cx="58" cy="93" r="2"/><circle cx="142" cy="93" r="2"/></g>
+<path d="M99 92h2v86h-2z M97 178l3 8 3-8z" fill="#d6a23c" opacity=".9"/>
 </svg>
   <figure class="stele">
     <div class="stele-top"><svg viewBox="0 0 24 24" class="glyph"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1"/></svg><span lang="ne">शिलालेख</span><svg viewBox="0 0 24 24" class="glyph"><path d="M16 3.5a8.5 8.5 0 1 0 4.5 13.6A7 7 0 0 1 16 3.5z"/></svg></div>
