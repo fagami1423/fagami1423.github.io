@@ -420,6 +420,85 @@ footer [lang="ne"]{color:#f5b942;font-weight:700}
 .brand .logo.lakhe svg{width:100%;height:100%;display:block}
 .brand:hover .logo.lakhe{animation:lakhe .9s ease-in-out}
 @keyframes lakhe{0%,100%{transform:rotate(0)}20%{transform:rotate(-12deg) scale(1.08)}45%{transform:rotate(10deg) scale(1.08)}70%{transform:rotate(-6deg)}}
+
+/* ---------- live technical demos ---------- */
+.demo{margin-top:40px;background:var(--surface);border:1px solid var(--line);border-radius:18px;overflow:hidden;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);transition:background .9s,border-color .9s}
+.demo .band{height:6px;background-size:auto 6px}
+.demo-hd{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:16px 20px 0;font:500 12px "JetBrains Mono",monospace;color:var(--faint);letter-spacing:.04em}
+.demo-hd b{color:var(--accent);text-transform:uppercase;letter-spacing:.07em;font-weight:600}
+.demo-hd .live{display:inline-flex;align-items:center;gap:6px;margin-left:auto;color:var(--muted)}
+.demo-hd .live::before{content:"";width:7px;height:7px;border-radius:50%;background:#2fbf71;box-shadow:0 0 0 0 rgba(47,191,113,.6);animation:livepulse 1.8s infinite}
+@keyframes livepulse{70%{box-shadow:0 0 0 7px rgba(47,191,113,0)}100%{box-shadow:0 0 0 0 rgba(47,191,113,0)}}
+.demo-bd{padding:12px 20px 20px}
+.demo h3{font:700 18px/1.3 var(--serif);margin:6px 20px 0;letter-spacing:-.01em}
+.demo svg text{font-family:"JetBrains Mono",monospace}
+.demos2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:40px}
+.demos2 .demo{margin-top:0}
+
+/* automation pipeline */
+.pipe svg{width:100%;height:auto;display:block;overflow:visible}
+.pipe .wire{stroke:var(--line);stroke-width:2;fill:none}
+.pipe .wire.on{stroke:color-mix(in srgb,var(--accent) 55%,transparent)}
+.pipe .node rect{fill:var(--chip);stroke:var(--line);stroke-width:1.5;transition:stroke .3s,fill .3s}
+.pipe .node.hit rect{stroke:var(--accent);fill:color-mix(in srgb,var(--accent) 16%,transparent)}
+.pipe .node .t{fill:var(--text);font-size:15px;font-weight:700}
+.pipe .node .s{fill:var(--faint);font-size:11.5px}
+.pipe .node .ic{fill:var(--accent);font-size:16px}
+.pipe .pkt{fill:var(--accent);filter:drop-shadow(0 0 5px var(--accent))}
+.plog{margin-top:12px;border-top:1px dashed var(--line);padding-top:10px;font:12.5px/1.75 "JetBrains Mono",monospace;color:var(--muted);height:calc(1.75em * 5 + 10px);overflow:hidden}
+.plog div{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;animation:logIn .35s ease}
+.plog .ts{color:var(--faint)} .plog .ok{color:#2fbf71} .plog .k{color:var(--accent)}
+@keyframes logIn{from{opacity:0;transform:translateY(6px)}}
+.pstats{display:flex;gap:22px;flex-wrap:wrap;margin-top:10px;font:500 12px "JetBrains Mono",monospace;color:var(--faint)}
+.pstats b{color:var(--text);font-size:15px;margin-right:4px}
+
+/* full-stack terminal */
+.term-wrap{display:grid;grid-template-columns:1.5fr 1fr;gap:18px;align-items:stretch}
+.term{background:#0b0d1c;border:1px solid rgba(255,255,255,.08);border-radius:12px;overflow:hidden;min-height:268px;display:flex;flex-direction:column}
+.term-bar{display:flex;gap:6px;padding:9px 12px;background:#14172b}
+.term-bar i{width:10px;height:10px;border-radius:50%;background:#ff5f57}.term-bar i:nth-child(2){background:#febc2e}.term-bar i:nth-child(3){background:#28c840}
+.term-bar span{margin-left:8px;font:500 11.5px "JetBrains Mono",monospace;color:#7f82ab}
+.term pre{margin:0;padding:12px 14px;font:12.5px/1.65 "JetBrains Mono",monospace;color:#d7d9f5;white-space:pre-wrap;word-break:break-word;height:330px;overflow-y:auto;scrollbar-width:none}
+.term .p{color:#2fbf71}.term .c{color:#f5b942}.term .s{color:#9fe0a8}.term .n{color:#ff9f80}.term .m{color:#7f82ab}
+.term .cur{display:inline-block;width:7px;height:14px;background:#d7d9f5;vertical-align:-2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.stack{display:flex;flex-direction:column;gap:8px;justify-content:center}
+.layer{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--chip);font:500 13px "JetBrains Mono",monospace;color:var(--muted);transition:all .25s}
+.layer small{margin-left:auto;font-size:11px;color:var(--faint)}
+.layer .dot{width:8px;height:8px;border-radius:50%;background:var(--faint);transition:all .25s}
+.layer.on{border-color:var(--accent);color:var(--text);background:color-mix(in srgb,var(--accent) 14%,transparent)}
+.layer.on .dot{background:var(--accent);box-shadow:0 0 10px var(--accent)}
+.stack .arw{text-align:center;color:var(--faint);font-size:11px;line-height:1}
+
+/* neural network */
+.nn svg,.gd svg{width:100%;height:auto;display:block}
+.nn .edge{stroke:var(--line);stroke-width:1}
+.nn .edge.on{stroke:var(--accent);stroke-opacity:.75}
+.nn .neuron{fill:var(--surface);stroke:var(--faint);stroke-width:1.4}
+.nn .neuron.on{stroke:var(--accent)}
+.nn .lbl{fill:var(--faint);font-size:10.5px}
+.nn .inp{fill:var(--text);font-size:12px}
+.nn .bar-bg{fill:var(--chip)}
+.nn .bar{fill:var(--accent);transition:width .6s cubic-bezier(.2,.8,.2,1)}
+.nn .bar.lo{fill:var(--faint)}
+.nn .pct{fill:var(--muted);font-size:10.5px}
+.nn .cls{fill:var(--text);font-size:11px}
+
+/* gradient descent */
+.gd .axis{stroke:var(--line);stroke-width:1}
+.gd .pt{fill:var(--accent2);fill-opacity:.75}
+.gd .fit{stroke:var(--accent);stroke-width:2.6;stroke-linecap:round}
+.gd .res{stroke:var(--accent);stroke-opacity:.22;stroke-width:1}
+.gd .loss{fill:none;stroke:var(--accent);stroke-width:2}
+.gd .lbl{fill:var(--faint);font-size:10.5px}
+.gd-read{display:flex;gap:16px;flex-wrap:wrap;margin-top:8px;font:500 12px "JetBrains Mono",monospace;color:var(--faint)}
+.gd-read b{color:var(--text)}
+
+@media (max-width:760px){
+  .term-wrap,.demos2{grid-template-columns:1fr}
+  .stack{flex-direction:row;flex-wrap:wrap}.stack .arw{display:none}.layer{flex:1 1 40%}
+  .layer small{display:none}
+}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
   .js .reveal{opacity:1;transform:none}
@@ -568,7 +647,7 @@ footer [lang="ne"]{color:#f5b942;font-weight:700}
     <div class="pillars reveal">
       <div class="pillar"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><h3>Automation</h3><p>APIs, webhooks, Keap, Zapier, Make</p></div>
       <div class="pillar"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m8 6-6 6 6 6M16 6l6 6-6 6"/></svg></div><h3>Full-stack</h3><p>React, Next.js, Vue · Python, PHP, Node</p></div>
-      <div class="pillar"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2a4 4 0 0 1 4 4v1a3 3 0 0 1 2 5 3 3 0 0 1-2 5v1a4 4 0 0 1-8 0v-1a3 3 0 0 1-2-5 3 3 0 0 1 2-5V6a4 4 0 0 1 4-4z"/></svg></div><h3>AI / ML</h3><p>NLP, Transformers, TensorFlow, LLM apps</p></div>
+      <div class="pillar"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2a4 4 0 0 1 4 4v1a3 3 0 0 1 2 5 3 3 0 0 1-2 5v1a4 4 0 0 1-8 0v-1a3 3 0 0 1-2-5 3 3 0 0 1 2-5V6a4 4 0 0 1 4-4z"/></svg></div><h3>AI / ML &amp; Data</h3><p>NLP, Transformers, LLM apps · pandas, SQL, Metabase</p></div>
       <div class="pillar"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 10h-1.3A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg></div><h3>Cloud &amp; DevOps</h3><p>AWS, GCP, Docker, AWX, CI/CD</p></div>
     </div>
   </div>
@@ -692,6 +771,15 @@ footer [lang="ne"]{color:#f5b942;font-weight:700}
       <div class="impact"><b>1 mo → 30 min</b>station onboarding</div>
     </div></article>
   </div>
+  <div class="demo pipe reveal" id="pipe">
+    <div class="band"></div>
+    <div class="demo-hd"><b>Automation</b><span>· replay of the webinar attendance flow</span><span class="live">running</span></div>
+    <div class="demo-bd">
+      <svg role="img" aria-label="Animated pipeline: Zoom webhook to Make.com to Keap to PostgreSQL to Metabase"></svg>
+      <div class="plog" id="plog" aria-live="off"></div>
+      <div class="pstats"><span><b id="pcount">0</b>registrants tagged this session</span><span><b id="plat">–</b>end-to-end</span><span><b>0</b>manual steps</span></div>
+    </div>
+  </div>
 </div></section>
 
 <section id="projects"><div class="wrap">
@@ -731,6 +819,19 @@ footer [lang="ne"]{color:#f5b942;font-weight:700}
     </article>
   </div>
   <div class="pager" id="pager" role="navigation" aria-label="Project pages"></div>
+  <div class="demo reveal">
+    <div class="band"></div>
+    <div class="demo-hd"><b>Full-stack</b><span>· the Job Tracker API, from request to response</span><span class="live">localhost:8000</span></div>
+    <div class="demo-bd term-wrap">
+      <div class="term"><div class="term-bar"><i></i><i></i><i></i><span>zsh · job_tracker</span></div><pre id="term-out" aria-label="Terminal running API requests against the Job Tracker backend"></pre></div>
+      <div class="stack" id="stack" aria-hidden="true">
+        <div class="layer"><span class="dot"></span>React UI<small>client</small></div><div class="arw">↕</div>
+        <div class="layer"><span class="dot"></span>FastAPI<small>REST · auth</small></div><div class="arw">↕</div>
+        <div class="layer"><span class="dot"></span>MongoDB<small>applications</small></div><div class="arw">↕</div>
+        <div class="layer"><span class="dot"></span>Ollama LLM<small>resume writer</small></div>
+      </div>
+    </div>
+  </div>
 </div></section>
 
 <section id="skills"><div class="wrap">
@@ -740,6 +841,17 @@ footer [lang="ne"]{color:#f5b942;font-weight:700}
   <div class="marquees reveal">
     <div class="marquee m1"><ul class="track"><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/javascript.svg);--c:#F7DF1E"></i><span>JavaScript</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/typescript.svg);--c:#3178C6"></i><span>TypeScript</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/react.svg);--c:#61DAFB"></i><span>React</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/nextdotjs.svg);--c:var(--text)"></i><span>Next.js</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/vuedotjs.svg);--c:#4FC08D"></i><span>Vue.js</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/tailwindcss.svg);--c:#06B6D4"></i><span>Tailwind</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/python.svg);--c:#3776AB"></i><span>Python</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/fastapi.svg);--c:#009688"></i><span>FastAPI</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/django.svg);--c:var(--text)"></i><span>Django</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/flask.svg);--c:var(--text)"></i><span>Flask</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/php.svg);--c:#777BB4"></i><span>PHP</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/laravel.svg);--c:#FF2D20"></i><span>Laravel</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/nodedotjs.svg);--c:#5FA04E"></i><span>Node.js</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/go.svg);--c:#00ADD8"></i><span>Go</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/tensorflow.svg);--c:#FF6F00"></i><span>TensorFlow</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/pytorch.svg);--c:#EE4C2C"></i><span>PyTorch</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/huggingface.svg);--c:#FFD21E"></i><span>Hugging Face</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/spacy.svg);--c:#09A3D5"></i><span>spaCy</span></li></ul></div>
     <div class="marquee m2"><ul class="track"><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg);--c:#FF9900"></i><span>AWS</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/googlecloud.svg);--c:#4285F4"></i><span>Google Cloud</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/docker.svg);--c:#2496ED"></i><span>Docker</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/ansible.svg);--c:#EE0000"></i><span>Ansible</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/githubactions.svg);--c:#2088FF"></i><span>GitHub Actions</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/git.svg);--c:#F05032"></i><span>Git</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/postgresql.svg);--c:#4169E1"></i><span>PostgreSQL</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/mysql.svg);--c:#4479A1"></i><span>MySQL</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/mongodb.svg);--c:#47A248"></i><span>MongoDB</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/influxdb.svg);--c:#22ADF6"></i><span>InfluxDB</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/elasticsearch.svg);--c:#00BFB3"></i><span>Elasticsearch</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/grafana.svg);--c:#F46800"></i><span>Grafana</span></li><li><i class="lg txt" style="--c:#36A635">K</i><span>Keap</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/zapier.svg);--c:#FF4F00"></i><span>Zapier</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/make.svg);--c:#A855F7"></i><span>Make</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/wordpress.svg);--c:#21759B"></i><span>WordPress</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/woocommerce.svg);--c:#96588A"></i><span>WooCommerce</span></li><li><i class="lg" style="--i:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/metabase.svg);--c:#509EE3"></i><span>Metabase</span></li></ul></div>
+  </div>
+  <div class="demos2 reveal">
+    <div class="demo nn"><div class="band"></div>
+      <div class="demo-hd"><b>AI / ML</b><span>· intent classifier, forward pass</span><span class="live">inference</span></div>
+      <div class="demo-bd"><svg id="nn-svg" role="img" aria-label="Neural network classifying customer messages into intents"></svg></div>
+    </div>
+    <div class="demo gd"><div class="band"></div>
+      <div class="demo-hd"><b>Data science</b><span>· gradient descent fitting a regression</span><span class="live">training</span></div>
+      <div class="demo-bd"><svg id="gd-svg" role="img" aria-label="Scatter plot with a regression line fitting itself by gradient descent, and a falling loss curve"></svg>
+        <div class="gd-read"><span>epoch <b id="gd-ep">0</b></span><span>loss <b id="gd-loss">–</b></span><span><b id="gd-eq">ŷ</b></span></div></div>
+    </div>
   </div>
 </div></section>
 
@@ -899,6 +1011,141 @@ footer [lang="ne"]{color:#f5b942;font-weight:700}
 
   const countUp=el=>{const end=+el.dataset.count;if(reduce){el.textContent=end.toLocaleString();return}
     const t0=performance.now(),dur=1400;const f=t=>{const p=Math.min(1,(t-t0)/dur),e=1-Math.pow(1-p,3);el.textContent=Math.round(end*e).toLocaleString();if(p<1)requestAnimationFrame(f)};requestAnimationFrame(f)};
+
+  // ---------- live technical demos ----------
+  const NS='http://www.w3.org/2000/svg';
+  const el=(tag,attrs={},parent)=>{const n=document.createElementNS(NS,tag);for(const k in attrs)n.setAttribute(k,attrs[k]);if(parent)parent.appendChild(n);return n};
+  const whenVisible=(node,start,stop)=>{if(!node)return;new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting?start():stop()),{threshold:.15}).observe(node)};
+  const hhmmss=()=>new Date().toTimeString().slice(0,8);
+  const rid=()=>40000+Math.floor(Math.random()*9999);
+
+  // 1) automation pipeline
+  (()=>{
+    const box=$('#pipe');if(!box)return;
+    const svg=box.querySelector('svg'),log=$('#plog'),cnt=$('#pcount'),lat=$('#plat');
+    const N=[['⚡','Zoom','webhook'],['⇄','Make.com','router + filter'],['◎','Keap','tag + campaign'],['▤','PostgreSQL','upsert'],['▦','Metabase','dashboard']];
+    const STEP=[
+      id=>`<span class="k">POST</span> /hooks/zoom  registrant.created  <span class="ok">200</span> · ${18+Math.floor(Math.random()*30)}ms`,
+      id=>`<span class="k">make</span>  route → "Webinar · October" · filter <span class="ok">pass</span>`,
+      id=>`<span class="k">keap</span>  POST /contacts/${id}/tags [2187] <span class="ok">201</span>`,
+      id=>`<span class="k">pg</span>    UPSERT registrants (${id}) · 1 row`,
+      id=>`<span class="k">metabase</span>  refresh "Webinar funnel" <span class="ok">✓</span>`];
+    let nodes=[],wires=[],pts=[],segs=[],vertical=false,pk=[],raf=0,last=0,spawnT=0,done=0;
+    const build=()=>{
+      vertical=box.clientWidth<620;svg.innerHTML='';nodes=[];wires=[];pts=[];
+      const W=vertical?320:1000,H=vertical?470:150;svg.setAttribute('viewBox',`0 0 ${W} ${H}`);
+      N.forEach((_,i)=>pts.push(vertical?[W/2,45+i*95]:[100+i*200,75]));
+      segs=[];for(let i=0;i<4;i++){const[a,b]=[pts[i],pts[i+1]],o=vertical?[0,32]:[82,0],A=[a[0]+o[0],a[1]+o[1]],B=[b[0]-o[0],b[1]-o[1]];segs.push([A,B]);wires.push(el('line',{class:'wire',x1:A[0],y1:A[1],x2:B[0],y2:B[1]},svg))}
+      N.forEach(([ic,t,s],i)=>{const g=el('g',{class:'node',transform:`translate(${pts[i][0]},${pts[i][1]})`},svg);
+        el('rect',{x:-82,y:-32,width:164,height:64,rx:12},g);
+        el('text',{class:'ic',x:-66,y:6},g).textContent=ic;
+        el('text',{class:'t',x:-44,y:-3},g).textContent=t;
+        el('text',{class:'s',x:-44,y:15},g).textContent=s;nodes.push(g)});
+      pk.forEach(p=>{p.c=el('circle',{class:'pkt',r:6},svg)});
+    };
+    const push=html=>{const d=document.createElement('div');d.innerHTML=`<span class="ts">${hhmmss()}</span>  `+html;log.prepend(d);while(log.children.length>5)log.lastChild.remove()};
+    const flash=i=>{nodes[i].classList.add('hit');setTimeout(()=>nodes[i]&&nodes[i].classList.remove('hit'),420)};
+    const tick=t=>{
+      const dt=Math.min(64,t-(last||t));last=t;spawnT-=dt;
+      if(spawnT<=0){spawnT=1500+Math.random()*900;const id=rid();pk.push({s:0,id,c:el('circle',{class:'pkt',r:6},svg),t0:t});flash(0);push(STEP[0](id))}
+      pk=pk.filter(p=>{
+        const prev=Math.floor(p.s);p.s+=dt/900;const seg=Math.floor(p.s);
+        if(seg>prev&&seg<=4){flash(seg);push(STEP[seg](p.id));wires[seg-1].classList.add('on');setTimeout(()=>wires[seg-1]&&wires[seg-1].classList.remove('on'),500)}
+        if(p.s>=4){p.c.remove();done++;cnt.textContent=done.toLocaleString();lat.textContent=(Math.round(t-p.t0)/1000).toFixed(1)+'s';return false}
+        const i=Math.min(3,seg),f=p.s-i,[a,b]=segs[i];p.c.setAttribute('cx',a[0]+(b[0]-a[0])*f);p.c.setAttribute('cy',a[1]+(b[1]-a[1])*f);return true});
+      raf=requestAnimationFrame(tick)};
+    build();let rzp;addEventListener('resize',()=>{clearTimeout(rzp);rzp=setTimeout(()=>{if((box.clientWidth<620)!==vertical){pk.forEach(p=>p.c.remove());pk=[];build()}},200)});
+    if(reduce){STEP.forEach((f,i)=>push(f(48213)));return}
+    whenVisible(box,()=>{if(!raf){last=0;raf=requestAnimationFrame(tick)}},()=>{cancelAnimationFrame(raf);raf=0});
+  })();
+
+  // 2) full-stack terminal
+  (()=>{
+    const pre=$('#term-out');if(!pre)return;const layers=$$('#stack .layer');
+    const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;');
+    const json=o=>esc(JSON.stringify(o,null,2)).replace(/(&quot;|")([^"]+)"(?=:)/g,'<span class="c">"$2"</span>').replace(/: "([^"]*)"/g,': <span class="s">"$1"</span>').replace(/: (-?[\d.]+|true|false)/g,': <span class="n">$1</span>');
+    const RUNS=[
+      {cmd:'curl -s localhost:8000/api/applications?stage=interview | jq',path:[0,1,2],out:{count:2,results:[{company:'acme-robotics',role:'Automation Engineer',stage:'interview',next_step:'2026-10-14'},{company:'northwind',role:'Integration Developer',stage:'interview',next_step:'2026-10-16'}]}},
+      {cmd:'curl -s -X POST localhost:8000/api/resume/tailor -d \'{"job_id": 42}\' | jq',path:[0,1,3,2],out:{job_id:42,model:'llama3:8b',matched_skills:['Python','REST APIs','Keap','PostgreSQL'],fit_score:0.87,status:'draft_ready',latency_ms:1840}},
+      {cmd:'docker compose ps --format "{{.Service}}: {{.Status}}"',path:[1,2,3],raw:'<span class="s">api</span>: Up 3 days (healthy)\n<span class="s">mongo</span>: Up 3 days\n<span class="s">ollama</span>: Up 3 days\n<span class="s">web</span>: Up 3 days'}];
+    let run=0,timer=0,alive=false;
+    const wait=ms=>new Promise(r=>{timer=setTimeout(r,ms)});
+    const P='<span class="p">raj@nelson</span><span class="m">:~/job_tracker$</span> ';
+    const play=async()=>{
+      while(alive){
+        const r=RUNS[run++%RUNS.length];let typed='';
+        for(const ch of r.cmd){if(!alive)return;typed+=ch;pre.innerHTML=P+esc(typed)+'<span class="cur"></span>';await wait(28+Math.random()*40)}
+        pre.innerHTML=P+esc(r.cmd)+'\n';
+        for(const i of r.path){layers.forEach(l=>l.classList.remove('on'));layers[i].classList.add('on');await wait(320)}
+        for(const i of [...r.path].reverse()){layers.forEach(l=>l.classList.remove('on'));layers[i].classList.add('on');await wait(160)}
+        layers.forEach(l=>l.classList.remove('on'));
+        const lines=(r.raw||json(r.out)).split('\n');
+        for(const ln of lines){if(!alive)return;pre.innerHTML+=ln+'\n';pre.scrollTop=pre.scrollHeight;await wait(55)}
+        pre.innerHTML+=P+'<span class="cur"></span>';pre.scrollTop=pre.scrollHeight;await wait(3200);
+      }};
+    if(reduce){const r=RUNS[1];pre.innerHTML=P+esc(r.cmd)+'\n'+json(r.out);return}
+    whenVisible(pre,()=>{if(!alive){alive=true;play()}},()=>{alive=false;clearTimeout(timer)});
+  })();
+
+  // 3) neural network: intent classifier forward pass
+  (()=>{
+    const svg=$('#nn-svg');if(!svg)return;
+    const L=[4,6,6,3],X=[40,140,240,330],H=230,CL=['order_status','refund','greeting'];
+    const SAMPLES=[['"where is my order?"',[.91,.06,.03]],['"I want my money back"',[.08,.88,.04]],['"hi there!"',[.02,.03,.95]],['"has it shipped yet?"',[.84,.11,.05]]];
+    const ys=n=>[...Array(n)].map((_,i)=>40+(i+.5)*(H-40)/n);
+    const edges=[],neur=[];
+    for(let l=0;l<L.length-1;l++){const a=ys(L[l]),b=ys(L[l+1]);edges[l]=[];a.forEach((y1,i)=>b.forEach((y2,j)=>edges[l].push(el('line',{class:'edge',x1:X[l],y1,x2:X[l+1],y2},svg))))}
+    L.forEach((n,l)=>{neur[l]=ys(n).map(y=>el('circle',{class:'neuron',cx:X[l],cy:y,r:l===0?7:8},svg))});
+    ['tokens','hidden 1','hidden 2','softmax'].forEach((t,l)=>{const tx=el('text',{class:'lbl',x:X[l],y:H+14,'text-anchor':'middle'},svg);tx.textContent=t});
+    const inp=el('text',{class:'inp',x:20,y:20},svg);
+    const bars=CL.map((c,i)=>{const y=ys(3)[i];el('rect',{class:'bar-bg',x:350,y:y-6,width:110,height:12,rx:3},svg);const b=el('rect',{class:'bar lo',x:350,y:y-6,width:0,height:12,rx:3},svg);
+      el('text',{class:'cls',x:350,y:y-10},svg).textContent=c;const p=el('text',{class:'pct',x:466,y:y+4},svg);return[b,p]});
+    svg.setAttribute('viewBox',`0 0 500 ${H+22}`);
+    let k=0,timer=0,alive=false;const wait=ms=>new Promise(r=>{timer=setTimeout(r,ms)});
+    const shade=(c,v)=>{c.classList.toggle('on',v>.35);c.style.fill=`color-mix(in srgb,var(--accent) ${Math.round(v*85)}%,var(--surface))`};
+    const reset=()=>{edges.flat().forEach(e=>e.classList.remove('on'));neur.flat().forEach(c=>{c.classList.remove('on');c.style.fill=''});bars.forEach(([b,p])=>{b.setAttribute('width',0);p.textContent=''})};
+    const show=(probs)=>bars.forEach(([b,p],i)=>{b.setAttribute('width',110*probs[i]);b.classList.toggle('lo',probs[i]<.5);p.textContent=Math.round(probs[i]*100)+'%'});
+    const loop=async()=>{while(alive){
+      const[text,probs]=SAMPLES[k++%SAMPLES.length];reset();inp.textContent='input: '+text;await wait(500);
+      for(let l=0;l<L.length;l++){if(!alive)return;
+        neur[l].forEach((c,i)=>shade(c,l===L.length-1?probs[i]:.2+Math.random()*.8));
+        if(l<edges.length){edges[l].forEach(e=>Math.random()<.45&&e.classList.add('on'));}
+        await wait(420)}
+      show(probs);await wait(2600)}};
+    if(reduce){inp.textContent='input: '+SAMPLES[0][0];neur.flat().forEach(c=>shade(c,.6));show(SAMPLES[0][1]);return}
+    whenVisible(svg,()=>{if(!alive){alive=true;loop()}},()=>{alive=false;clearTimeout(timer)});
+  })();
+
+  // 4) data science: gradient descent on a linear regression
+  (()=>{
+    const svg=$('#gd-svg');if(!svg)return;
+    const W=500,H=252,P={l:30,r:180,t:14,b:26},pw=W-P.l-P.r,ph=H-P.t-P.b,lx=W-P.r+24,lw=P.r-34;
+    svg.setAttribute('viewBox',`0 0 ${W} ${H}`);
+    el('line',{class:'axis',x1:P.l,y1:H-P.b,x2:P.l+pw,y2:H-P.b},svg);el('line',{class:'axis',x1:P.l,y1:P.t,x2:P.l,y2:H-P.b},svg);
+    el('line',{class:'axis',x1:lx,y1:H-P.b,x2:lx+lw,y2:H-P.b},svg);el('line',{class:'axis',x1:lx,y1:P.t+40,x2:lx,y2:H-P.b},svg);
+    el('text',{class:'lbl',x:P.l+pw/2,y:H-6,'text-anchor':'middle'},svg).textContent='x · feature';
+    el('text',{class:'lbl',x:lx+lw/2,y:H-6,'text-anchor':'middle'},svg).textContent='epochs';
+    el('text',{class:'lbl',x:lx,y:P.t+30},svg).textContent='MSE loss';
+    const gRes=el('g',{},svg),gPts=el('g',{},svg),fit=el('line',{class:'fit'},svg),loss=el('path',{class:'loss'},svg);
+    const rEp=$('#gd-ep'),rLoss=$('#gd-loss'),rEq=$('#gd-eq');
+    const sx=x=>P.l+x/10*pw,sy=y=>H-P.b-y/10*ph;
+    let data=[],w,b,ep,hist,raf=0,last=0,hold=0,res=[],acc=0;
+    const seed=()=>{const tw=.45+Math.random()*.4,tb=1+Math.random()*2.5;data=[...Array(36)].map(()=>{const x=.4+Math.random()*9.2;return[x,Math.max(.2,Math.min(9.8,tw*x+tb+(Math.random()-.5)*2.4))]});
+      gPts.innerHTML='';gRes.innerHTML='';res=data.map(([x,y])=>{el('circle',{class:'pt',cx:sx(x),cy:sy(y),r:3.6},gPts);return el('line',{class:'res'},gRes)});w=-.2;b=8.5;ep=0;hist=[];hold=0};
+    const mse=()=>data.reduce((s,[x,y])=>s+(w*x+b-y)**2,0)/data.length;
+    const draw=()=>{fit.setAttribute('x1',sx(0));fit.setAttribute('y1',sy(b));fit.setAttribute('x2',sx(10));fit.setAttribute('y2',sy(w*10+b));
+      data.forEach(([x,y],i)=>{const r=res[i];r.setAttribute('x1',sx(x));r.setAttribute('x2',sx(x));r.setAttribute('y1',sy(y));r.setAttribute('y2',sy(w*x+b))});
+      const m=hist[0]||1,n=Math.max(60,hist.length);loss.setAttribute('d',hist.map((v,i)=>(i?'L':'M')+(lx+i/n*lw).toFixed(1)+','+(H-P.b-(v/m)*(ph-40)).toFixed(1)).join(''));
+      rEp.textContent=ep;rLoss.textContent=mse().toFixed(3);rEq.textContent=`ŷ = ${w.toFixed(2)}x ${b<0?'−':'+'} ${Math.abs(b).toFixed(2)}`};
+    const step=()=>{let gw=0,gb=0;data.forEach(([x,y])=>{const e=w*x+b-y;gw+=e*x;gb+=e});gw*=2/data.length;gb*=2/data.length;w-=.012*gw;b-=.06*gb;ep++;hist.push(mse())};
+    const tick=t=>{const dt=t-(last||t);last=t;
+      if(hold>0){hold-=dt;if(hold<=0)seed()}else{acc+=dt;while(acc>28){acc-=28;step()}if(ep>=220||(hist.length>2&&Math.abs(hist[hist.length-2]-hist[hist.length-1])<1e-5))hold=2600}
+      draw();raf=requestAnimationFrame(tick)};
+    seed();
+    if(reduce){for(let i=0;i<220;i++)step();draw();return}
+    draw();whenVisible(svg,()=>{if(!raf){last=0;raf=requestAnimationFrame(tick)}},()=>{cancelAnimationFrame(raf);raf=0});
+  })();
+
   const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');e.target.querySelectorAll('[data-count]').forEach(countUp);io.unobserve(e.target)}}),{threshold:.12});
   $$('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%3)*80+'ms';io.observe(el)});
 
