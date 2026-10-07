@@ -276,6 +276,43 @@ h2 em{font-style:italic;font-weight:500;color:var(--accent)}
 .card .more{margin-top:14px;font:italic 600 15px var(--serif);color:#8e1b1b}
 .card .more:hover{text-decoration:underline}
 
+/* sealed scrolls: rolled up until clicked */
+.pgrid{align-items:start}
+.pgrid .card:not(.hide){display:block}
+.facew,.roll{overflow:hidden;transition:height .9s cubic-bezier(.65,.05,.25,1) 0s}
+.roll{height:0;margin-bottom:-6px;position:relative;z-index:1}.roll .paper{margin:0}
+.facew{transition-duration:.45s;transition-delay:.55s}
+.card.open .facew{transition-delay:.1s}
+.card.open .roll{transition-delay:.2s}
+.facew{margin:-6px 0;position:relative;z-index:1}.facew+.roll{margin-top:-6px}
+.face{all:unset;box-sizing:border-box;width:100%;display:flex;align-items:center;gap:14px;padding:22px 20px 22px 16px;cursor:pointer;position:relative;
+  background:repeating-linear-gradient(180deg,transparent 0 7px,rgba(110,65,20,.10) 7px 8px),
+    linear-gradient(180deg,#b08a4f,#e9d29c 22%,#f6e8c6 48%,#e5cc93 76%,#9c773f);
+  box-shadow:inset 0 0 0 1px rgba(90,50,10,.15)}
+.face:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:4px}
+.face .ribbon{position:absolute;top:0;bottom:0;left:31px;width:16px;background:linear-gradient(90deg,#7c1414,#b8282a 40%,#8e1b1b);box-shadow:0 0 0 1px rgba(60,5,5,.3);transition:transform .35s,opacity .35s}
+.face .seal{position:relative;flex:none;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;font-size:20px;
+  background:radial-gradient(circle at 35% 30%,#d9443a,#9e1b1b 60%,#6d0f0f);box-shadow:0 2px 0 #5a0c0c,0 4px 10px rgba(110,15,15,.45),inset 0 0 0 3px rgba(255,255,255,.12);transition:transform .3s cubic-bezier(.3,1.6,.5,1)}
+.face .ft{display:flex;flex-direction:column;justify-content:center;gap:3px;min-width:0;min-height:62px}
+.face .ft b{font:700 16.5px/1.25 var(--serif);color:#2b1a0a}
+.face .ft small{font:italic 600 13px var(--serif);color:#8e1b1b;opacity:.85}
+.face:hover .seal{transform:rotate(-12deg) scale(1.08)}
+.card.open .face .seal{transform:scale(1.35) rotate(20deg);opacity:0;transition:transform .35s,opacity .3s .1s}
+.card.open .face .ribbon{transform:translateY(40%) scaleY(.4);opacity:0}
+.roll .paper>*:not(.quill){opacity:0;transform:translateY(-6px);transition:opacity .2s,transform .2s}
+.card.open .roll .paper>*:not(.quill){opacity:1;transform:none;transition:opacity .5s .7s,transform .5s .7s}
+.card .quill{opacity:0;transition:opacity .3s,transform .5s cubic-bezier(.3,1.4,.5,1)}
+.card.open .quill{opacity:1;transition:opacity .5s 1s,transform .5s cubic-bezier(.3,1.4,.5,1)}
+.rod{background-size:100% 100%,100% 6px}
+.rod{background-image:linear-gradient(180deg,#8a5a2b,#c48a4f 35%,#7a4c22 70%,#4e2f13),repeating-linear-gradient(180deg,rgba(0,0,0,.12) 0 1px,transparent 1px 6px)}
+.card.spin .rod{animation:spin .9s cubic-bezier(.65,.05,.25,1)}
+.card.spin .rod:first-child{animation-direction:reverse}
+@keyframes spin{to{background-position:0 0,0 -60px}}
+.card .top .acts{display:flex;align-items:center;gap:12px}
+.rollup{all:unset;cursor:pointer;font:500 12px "JetBrains Mono",monospace;color:#6b3f17;opacity:.75;padding:2px 4px;border-radius:4px}
+.rollup:hover{opacity:1;color:#8e1b1b}.rollup:focus-visible{outline:2px solid #8e1b1b}
+@media (prefers-reduced-motion:reduce){.facew,.roll,.roll .paper>*,.card .quill,.face .seal,.face .ribbon{transition:none!important}.card.spin .rod{animation:none}}
+
 /* ---------- skills marquee ---------- */
 .marquees{display:flex;flex-direction:column;gap:16px}
 .marquee{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
@@ -785,7 +822,7 @@ footer [lang="ne"]{color:#f5b942;font-weight:700}
 <section id="projects"><div class="wrap">
   <p class="eyebrow"><span lang="ne">अध्याय ४</span><span>Projects</span><span class="t">· open source</span></p>
   <h2 class="reveal">Things I've <em>built.</em></h2>
-  <p class="sub reveal">Open-source projects on GitHub, written up like letters from the past.</p>
+  <p class="sub reveal">Open-source projects on GitHub, written up like letters from the past. Break a seal to unroll one.</p>
   <div class="pgrid reveal" id="grid">
     <article class="card" data-cat="ai" data-repo="ASL-TransferLearning" data-emoji="🤟">
       <h3>ASL Alphabet Recognition</h3>
@@ -915,10 +952,30 @@ footer [lang="ne"]{color:#f5b942;font-weight:700}
   $$('.socials a[aria-label="GitHub"]').forEach(a=>a.innerHTML=GH);
   $$('#grid .card').forEach(c=>{
     const url='https://github.com/fagami1423/'+c.dataset.repo;
-    c.insertAdjacentHTML('afterbegin',`<div class="top"><span class="emoji">${c.dataset.emoji}</span><a class="gh" href="${url}" target="_blank" rel="noopener" aria-label="View ${c.dataset.repo} on GitHub">${GH}</a></div>`);
+    const title=c.querySelector('h3').textContent,id='roll-'+c.dataset.repo;
+    c.insertAdjacentHTML('afterbegin',`<div class="top"><span class="emoji">${c.dataset.emoji}</span><span class="acts"><button class="rollup" type="button" aria-controls="${id}">roll up ↑</button><a class="gh" href="${url}" target="_blank" rel="noopener" aria-label="View ${c.dataset.repo} on GitHub">${GH}</a></span></div>`);
     c.insertAdjacentHTML('beforeend',`<a class="more" href="${url}" target="_blank" rel="noopener">Read the scroll →</a>`);
     const paper=document.createElement('div');paper.className='paper';while(c.firstChild)paper.appendChild(c.firstChild);paper.insertAdjacentHTML('beforeend',QUILL);
-    c.append(Object.assign(document.createElement('div'),{className:'rod'}),paper,Object.assign(document.createElement('div'),{className:'rod'}));
+    const roll=document.createElement('div');roll.className='roll';roll.id=id;roll.inert=true;
+    const rin=document.createElement('div');rin.className='rin';rin.appendChild(paper);roll.appendChild(rin);
+    const facew=document.createElement('div');facew.className='facew';
+    facew.innerHTML=`<div class="fin"><button class="face" type="button" aria-expanded="false" aria-controls="${id}"><span class="ribbon" aria-hidden="true"></span><span class="seal" aria-hidden="true">${c.dataset.emoji}</span><span class="ft"><b>${title}</b><small>Break the seal to unroll</small></span></button></div>`;
+    c.append(Object.assign(document.createElement('div'),{className:'rod'}),facew,roll,Object.assign(document.createElement('div'),{className:'rod'}));
+    const face=facew.querySelector('.face'),rollup=paper.querySelector('.rollup');
+    const tween=(el,to)=>{ // animate height between px values, settle on auto when growing
+      el.style.height=el.getBoundingClientRect().height+'px';void el.offsetHeight;
+      el.style.height=to?el.scrollHeight+'px':'0px';
+      const done=e=>{if(e.target!==el||e.propertyName!=='height')return;el.removeEventListener('transitionend',done);if(to)el.style.height='auto'};
+      el.addEventListener('transitionend',done);if(reduce&&to)el.style.height='auto';
+    };
+    const set=open=>{
+      c.classList.toggle('open',open);face.setAttribute('aria-expanded',open);roll.inert=!open;facew.inert=open;
+      tween(facew,!open);tween(roll,open);
+      c.classList.remove('spin');void c.offsetWidth;c.classList.add('spin');clearTimeout(c._t);c._t=setTimeout(()=>c.classList.remove('spin'),1200);
+      setTimeout(()=>(open?rollup:face).focus({preventScroll:true}),open?700:500);
+    };
+    face.addEventListener('click',()=>set(true));
+    rollup.addEventListener('click',()=>set(false));
   });
 
   // projects: paginated grid
