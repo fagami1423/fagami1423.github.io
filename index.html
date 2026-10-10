@@ -75,6 +75,9 @@ a{color:var(--accent);text-decoration:none}
 .flag{position:absolute;width:26px;height:32px;margin-left:-13px;transform-origin:50% 0;animation:sway 3.2s ease-in-out infinite alternate;opacity:.92;border-radius:1px}
 .flag::after{content:"";position:absolute;inset:7px 6px;border:1px solid rgba(0,0,0,.12);border-radius:50%}
 @keyframes sway{from{transform:rotate(-5deg) skewY(-2deg)}to{transform:rotate(6deg) skewY(2deg)}}
+.windy .flag{animation:none;will-change:transform}
+.windy .flag::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+  background:linear-gradient(100deg,rgba(0,0,0,.18) 0%,rgba(255,255,255,.22) var(--rip,50%),rgba(0,0,0,.14) 100%);mix-blend-mode:soft-light}
 
 /* ---------- nav ---------- */
 nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);background:color-mix(in srgb,var(--surface) 70%,transparent);border-bottom:1px solid var(--line);transition:background .9s}
@@ -1013,6 +1016,37 @@ footer [lang="ne"]{color:#f5b942;font-weight:700}
   };
   const flagEls=$$('[data-flags]');flagEls.forEach(buildFlags);
   let rz;addEventListener('resize',()=>{clearTimeout(rz);rz=setTimeout(()=>flagEls.forEach(buildFlags),200)});
+
+  // prayer flags in the wind: gusts roll along the rope, each flag lifts, ripples and flutters
+  if(!reduce){
+    const live=new Set();
+    const fio=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting?live.add(e.target):live.delete(e.target)));
+    flagEls.forEach(el=>{el.classList.add('windy');fio.observe(el)});
+    const seeds=[...Array(64)].map(()=>Math.random()*6.283);
+    const gust=t=>.55+.3*Math.sin(t*.37)+.22*Math.sin(t*.91+1.3)+.12*Math.sin(t*2.3+.4); // 0..~1.2 wind strength
+    const wind=t=>{
+      const T=t/1000;
+      live.forEach(el=>{
+        const flags=el._flags||(el._flags=[...el.querySelectorAll('.flag')]),path=el.querySelector('path'),H=56/50;
+        const gs=gust(T),sag=160-26*gs+4*Math.sin(T*1.7);
+        path.setAttribute('d',`M0,2 Q${50+6*gs},${2+sag/2} 100,2`);
+        const n=flags.length;
+        flags.forEach((f,i)=>{
+          const x=(i+.5)/n,g=gust(T-x*1.6),sd=seeds[i%64];
+          const lift=Math.max(0,g)*24+4;                                  // lean away from the wind
+          const flut=Math.sin(T*9+sd+x*12)*(2+3*g)+Math.sin(T*15.3+sd*2)*1.4;
+          const rip=Math.sin(T*7.5-x*9+sd);
+          const y=(2+sag*x*(1-x))*H;
+          f.style.top=(y-1)+'px';
+          f.style.transform=`rotate(${-(lift+flut).toFixed(2)}deg) skewY(${(rip*5*g).toFixed(2)}deg) scaleY(${(1-.12*Math.min(1,g)).toFixed(3)})`;
+          f.style.setProperty('--rip',(50+rip*50).toFixed(1)+'%');
+        });
+      });
+      requestAnimationFrame(wind);
+    };
+    requestAnimationFrame(wind);
+    addEventListener('resize',()=>setTimeout(()=>flagEls.forEach(el=>el._flags=null),260));
+  }
 
   // day / night mode
   const THEME={predawn:'#0e1336',day:'#c2e2f8'};
